@@ -53,20 +53,22 @@ document.querySelectorAll(".navbar-list a").forEach((link) => {
 //when one go down and one go up
 
 window.addEventListener("scroll", function () {
-  const scrollPosition = window.pageYOffset;
+  if (window.innerWidth > 720) {
+    const scrollPosition = window.pageYOffset;
 
-  document.querySelectorAll(".parallax").forEach(function (el, index) {
-    var speed = 0.3 + 0.1 * index;
+    document.querySelectorAll(".parallax").forEach(function (el, index) {
+      var speed = 0.3 + 0.1 * index;
 
-    // For the first element (index = 0), let's keep the original effect
-    if (index === 0) {
-      el.style.transform = `translateY(${scrollPosition * speed}px)`;
-    }
-    // For the second element (index = 1), let's reverse the effect
-    else if (index === 1) {
-      el.style.transform = `translateY(${-scrollPosition * speed}px)`;
-    }
-  });
+      // For the first element (index = 0)
+      if (index === 0) {
+        el.style.transform = `translateY(${scrollPosition * speed}px)`;
+      }
+      // For the second element (index = 1)
+      else if (index === 1) {
+        el.style.transform = `translateY(${-scrollPosition * speed}px)`;
+      }
+    });
+  }
 });
 
 // ! == == == ==   grid cards animation   == == == ==
