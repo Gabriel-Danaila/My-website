@@ -83,8 +83,8 @@ Copyright: 2023 */
  svg,
  embed {
      height: auto;
-     display: block;
      max-width: 100%;
+     display: block;
  }
 
  a,
@@ -223,7 +223,75 @@ Copyright: 2023 */
      transform: translateY(-0.7rem) rotate(-45deg);
  }
 
+ /** == == == == ==     3. Hero section   == == == == == **/
+
+ .section-hero {
+     background-color: var(--clr-background-main);
+     padding: 1em 4em 4em;
+     display: flex;
+     gap: 4em;
+     max-height: 51em;
+
+ }
+
+ .section-hero-img {
+     width: 689px;
+     height: 736px;
+     object-fit: cover;
+ }
+
+ .container {
+     margin-top: 106px;
+
+ }
+
+ .top-container {
+     max-width: 500px;
+ }
+
+ .section-hero-title {
+     font-family: var(--ff-secondary);
+     font-size: var(--fs-64);
+     font-weight: var(--fw-regular);
+     /* color: var(--clr-text-primary); */
+     line-height: normal;
+     font-style: normal;
+     align-self: stretch;
+
+ }
+
+ .section-hero-subtitle {
+     font-size: var(--fs-18);
+     font-weight: var(--fw-light);
+     line-height: 32px;
+     align-self: stretch;
+     margin-top: 24px;
+     margin-bottom: 48px;
+
+ }
+
+ .bottom-container {}
+
+
+
+ .my-image {
+     width: 160px;
+     height: 160px;
+     border-radius: 50%;
+     object-fit: cover;
+ }
+
+ /** == == == == ==     4. Image section   == == == == == **/
+ .section-img {
+     height: 33em;
+     width: 100%;
+     object-fit: cover;
+ }
+
+
  /** == == == == ==    10. Animation Keyframes    == == == == ==  **/
+
+ /* not use at this time  */
  @keyframes fadeOut {
      0% {
          opacity: 1;
@@ -237,13 +305,34 @@ Copyright: 2023 */
  /** == == == == ==    11. @media query    == == == == ==  **/
 
 
- @media only screen and (max-width:50em) {
+ @media only screen and (max-width:83em) {
+     .section-hero {
+         flex-direction: column;
+         gap: 24px;
+     }
+
+     .container {
+         margin: 0
+     }
+
+     .top-container {
+         max-width: 700px;
+     }
+
+     .section-hero-title {
+         font-size: var(--fs-32);
+         max-width: 250px;
+     }
+
+
+ }
+
+ @media only screen and (max-width:45em) {
 
      /* html {
         font-size: 85%;
         scroll-padding-top: 175px;
     } */
-
 
      .header {
          position: fixed;
@@ -261,5 +350,12 @@ Copyright: 2023 */
          display: none;
      }
 
+     .section-hero {
+         padding: 1.5em 1em;
+         flex-direction: column;
+     }
 
+     .top-container {
+         max-width: 100%;
+     }
  }
