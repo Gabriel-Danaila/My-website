@@ -5,17 +5,16 @@ Copyright: 2023 */
  /* ===================================
 
 0. Root variables and minim reset
-1. Logo animated cube
-2. Theme changing button
-3. Hamburger menu
-4. Navbar
-5. Projects
-6. Side animation on scroll
-7. Resume
-8. About Me
-9. Contact Form 
-10.Animation Keyframes
-11. @media query
+1. Header 
+2. Hamburger menu 
+3. Main hero section
+4. Paralax
+5. Image full screen section 
+6. Project section
+7. Skills section
+8. Contact Form
+9. Animation Keyframes 
+10. @media query
   
 ======================================== */
 
@@ -224,7 +223,8 @@ Copyright: 2023 */
      transform: translateY(-0.7rem) rotate(-45deg);
  }
 
- /** == == == == ==     3. Hero section   == == == == == **/
+ /** == == == == ==     3. Main hero section   == == == == == **/
+
 
  .section-hero {
      background-color: var(--clr-background-main);
@@ -244,8 +244,6 @@ Copyright: 2023 */
  .container {
      margin-top: 106px;
      z-index: 2;
-
-
  }
 
  .top-container {
@@ -311,7 +309,6 @@ Copyright: 2023 */
      font-size: var(--fs-12);
      font-weight: var(--fw-regular);
      line-height: normal;
-     /* margin-bottom: 10px; */
 
  }
 
@@ -344,7 +341,16 @@ Copyright: 2023 */
      line-height: 32px;
  }
 
- /** == == == == ==     4. Image section   == == == == == **/
+
+ /** == == == == ==     4. Paralax  == == == == == **/
+
+ .section-hero-img,
+ .container {
+     position: relative;
+ }
+
+
+ /** == == == == ==     5. Image full screen section   == == == == == **/
 
  .section-img {
      background-color: var(--clr-background-main);
@@ -356,26 +362,152 @@ Copyright: 2023 */
      object-fit: cover;
  }
 
+ /** == == == == ==     6. Projects section   == == == == == **/
 
- /** == == == == ==    10. Animation Keyframes    == == == == ==  **/
+ .section {
+     background-color: var(--clr-background-main);
+     padding: 5em 4em 0;
+ }
 
- /* not use at this time  */
- @keyframes fadeOut {
-     0% {
-         opacity: 1;
+ .section-title {
+     font-family: var(--ff-secondary);
+     font-size: var(--fs-48);
+     font-weight: var(--fw-regular);
+     line-height: normal;
+     padding-bottom: 40px;
+ }
+
+ .projects {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     justify-content: center;
+     gap: 40px;
+ }
+
+ .project-card {
+     border: 1px solid var(--clr-borders);
+     padding: .5em 1em;
+     /* width: 236px; */
+     opacity: 0;
+     transition: opacity 1s, transform 1s;
+ }
+
+
+ .project-card-title {
+     font-size: var(--fs-20);
+     font-weight: var(--fw-bold);
+     line-height: 32px;
+     padding: 16px 0 8px;
+ }
+
+ .project-card-text {
+     font-size: var(--fs-16);
+     font-weight: var(--fw-light);
+     line-height: 32px;
+ }
+
+ .animate-card {
+     opacity: 1;
+     transform: translateY(0);
+     animation-name: fadeIn;
+     animation-duration: 1s;
+     animation-fill-mode: forwards;
+ }
+
+ /** == == == == ==     7. Skills section   == == == == == **/
+
+ .section-title[role="skills"] {
+     padding-bottom: 16px;
+ }
+
+ .text {
+     max-width: 660px;
+     font-weight: var(--fw-light);
+     line-height: 32px;
+     padding-bottom: 40px;
+ }
+
+ .skills-container-text {
+     text-align: center;
+     font-size: var(--fs-24);
+     font-weight: var(--fw-bold);
+     line-height: 32px;
+ }
+
+ .skills-container-box {
+     display: inline-block;
+     border: 1px solid var(--clr-borders);
+     margin: 4px;
+     padding: 40px 64px;
+
+ }
+
+ /** == == == == ==     8. Contact Form   == == == == == **/
+
+ .contact-content {}
+
+ .form {
+     max-width: 600px;
+     background-color: var(--clr-background-main)
+ }
+
+ .form label {
+     font-weight: var(--fw-light);
+     line-height: 32px;
+     display: block;
+     padding: 24px 0 8px;
+ }
+
+ .form input[type="text"],
+ .form input[type="email"],
+ .form textarea {
+     width: 100%;
+     padding: 12px 20px;
+     display: inline-block;
+     border: 1px solid var(--clr-borders);
+ }
+
+ .form button[type="submit"] {
+     width: 195px;
+     height: 56px;
+     background-color: var(--clr-background-btn);
+     font-size: var(--fs-16);
+     font-weight: var(--fw-light);
+     color: var(--clr-text-secondary);
+     line-height: 32px;
+     letter-spacing: 0.64px;
+     padding: 14px 20px;
+     margin: 40px 0 80px;
+     border: none;
+     cursor: pointer;
+
+ }
+
+ /* .form button[type="submit"]:hover {
+     background-color: #45a049;
+ } */
+
+ /** == == == == ==    9. Animation Keyframes    == == == == ==  **/
+
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(20px);
      }
 
-     100% {
-         opacity: 0;
+     to {
+         opacity: 1;
+         transform: translateY(0);
      }
  }
 
- /** == == == == ==    11. @media query    == == == == ==  **/
+ /** == == == == ==    10. @media query    == == == == ==  **/
 
 
  @media only screen and (max-width:83em) {
      .section-hero {
          flex-direction: column;
+         align-items: center;
          gap: 24px;
      }
 
@@ -394,9 +526,6 @@ Copyright: 2023 */
      .top-container {
          max-width: 700px;
      }
-
-
-
  }
 
  @media only screen and (max-width:45em) {
@@ -432,6 +561,35 @@ Copyright: 2023 */
      }
 
      .section-img {
-         padding-top: 23em;
+         padding-top: 300px;
+     }
+
+     .section {
+         padding: 1.5em 1em;
+     }
+
+     .section-title {
+         font-size: var(--fs-32);
+         padding-bottom: 32px;
+     }
+
+     .section-title[role="skills"] {
+         padding-bottom: 32px;
+     }
+
+     .text {
+         padding-bottom: 24px;
+     }
+
+     .skills-container-text {
+         font-size: var(--fs-16);
+     }
+
+     .skills-container-box {
+         padding: 24px 40px;
+     }
+
+     .form button[type="submit"] {
+         margin: 24px 0 186px;
      }
  }
