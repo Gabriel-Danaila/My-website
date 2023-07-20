@@ -114,6 +114,7 @@ Copyright: 2023 */
  .header {
      background-color: var(--clr-background-main);
      padding: 2.5em 4em;
+     z-index: 10;
  }
 
  .navbar-logo {
@@ -242,6 +243,8 @@ Copyright: 2023 */
 
  .container {
      margin-top: 106px;
+     z-index: 2;
+
 
  }
 
@@ -253,7 +256,6 @@ Copyright: 2023 */
      font-family: var(--ff-secondary);
      font-size: var(--fs-64);
      font-weight: var(--fw-regular);
-     /* color: var(--clr-text-primary); */
      line-height: normal;
      font-style: normal;
      align-self: stretch;
@@ -270,19 +272,85 @@ Copyright: 2023 */
 
  }
 
- .bottom-container {}
+ .bottom-container {
+     background-color: var(--clr-background-main);
+     border: 1px solid var(--clr-borders);
+     width: 227px;
+     height: 497px;
+     position: relative;
+ }
 
-
+ .image-part {
+     padding: 1.5em 2em;
+ }
 
  .my-image {
      width: 160px;
      height: 160px;
      border-radius: 50%;
      object-fit: cover;
+     z-index: 1;
+ }
+
+ .resume-part::before {
+     content: "";
+     position: absolute;
+     top: 209px;
+     left: 0;
+     width: 100%;
+     border-top: 1px solid var(--clr-borders);
+ }
+
+ .resume-part {
+     padding: 1.5em 1.5em;
+     text-align: center;
+ }
+
+ .profile {
+     font-family: "Inter";
+     font-size: var(--fs-12);
+     font-weight: var(--fw-regular);
+     line-height: normal;
+     /* margin-bottom: 10px; */
+
+ }
+
+ .name {
+     font-family: var(--ff-secondary);
+     font-size: var(--fs-24);
+     font-weight: var(--fw-regular);
+     line-height: normal;
+     margin: 12px 0;
+ }
+
+ .text-1 {
+     color: var(--clr-borders);
+     font-size: var(--fs-16);
+     font-style: italic;
+     line-height: 32px;
+ }
+
+ .text-2 {
+     color: var(--clr-borders);
+     font-size: var(--fs-16);
+     font-style: italic;
+     line-height: 24px;
+     margin-bottom: 24px;
+ }
+
+ .download-btn {
+     font-size: var(--fs-16);
+     font-weight: var(--fw-bold);
+     line-height: 32px;
  }
 
  /** == == == == ==     4. Image section   == == == == == **/
+
  .section-img {
+     background-color: var(--clr-background-main);
+ }
+
+ .section-img-cover {
      height: 33em;
      width: 100%;
      object-fit: cover;
@@ -311,18 +379,22 @@ Copyright: 2023 */
          gap: 24px;
      }
 
+     .section-hero-title {
+         font-size: var(--fs-32);
+         max-width: 250px;
+     }
+
      .container {
-         margin: 0
+         margin: 0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
      }
 
      .top-container {
          max-width: 700px;
      }
 
-     .section-hero-title {
-         font-size: var(--fs-32);
-         max-width: 250px;
-     }
 
 
  }
@@ -357,5 +429,9 @@ Copyright: 2023 */
 
      .top-container {
          max-width: 100%;
+     }
+
+     .section-img {
+         padding-top: 23em;
      }
  }
