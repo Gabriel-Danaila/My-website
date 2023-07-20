@@ -410,7 +410,7 @@ Copyright: 2023 */
      opacity: 1;
      transform: translateY(0);
      animation-name: fadeIn;
-     animation-duration: 1s;
+     animation-duration: .5s;
      animation-fill-mode: forwards;
  }
 
