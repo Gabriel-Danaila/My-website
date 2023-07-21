@@ -57,7 +57,7 @@ window.addEventListener("scroll", function () {
     const scrollPosition = window.pageYOffset;
 
     document.querySelectorAll(".parallax").forEach(function (el, index) {
-      var speed = 0.3 + 0.1 * index;
+      var speed = 0.1 + 0.1 * index;
 
       // For the first element (index = 0)
       if (index === 0) {
@@ -94,10 +94,11 @@ function observerCallback(entries, observer) {
 const observer = new IntersectionObserver(observerCallback, observerOptions);
 
 // Start observing each project card
-document.querySelectorAll(".project-card").forEach((projectCard) => {
+
+document.querySelectorAll(".project-card").forEach((projectCard, index) => {
+  projectCard.style.animationDelay = `${index * 100}ms`;
   observer.observe(projectCard);
 });
-
 // ! == == == ==   form submision confirmation message  == == == ==
 //use formbold.com link to subbmit mesages to my email adress
 // const form = document.getElementById("contact-form");
