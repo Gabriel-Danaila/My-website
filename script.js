@@ -101,22 +101,22 @@ document.querySelectorAll(".project-card").forEach((projectCard, index) => {
 });
 // ! == == == ==   form submision confirmation message  == == == ==
 //use formbold.com link to subbmit mesages to my email adress
-// const form = document.getElementById("contact-form");
-// form.addEventListener("submit", function (event) {
-//   event.preventDefault(); // prevent the default form submission action
+const form = document.getElementById("contact-form");
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // prevent the default form submission action
 
-//   fetch(form.action, {
-//     method: "POST",
-//     body: new FormData(form),
-//   })
-//     .then((response) => response.json())
-//     .then((responseJson) => {
-//       // Display a success message
-//       alert("Thank you for your message. We will be in touch soon.");
-//     })
-//     .catch((error) => {
-//       // Handle errors
-//       console.error("Error:", error);
-//       alert("An error occurred. Please try again later.");
-//     });
-// });
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+  })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      // Display a success message
+      alert("Thank you for your message. We will be in touch soon.");
+    })
+    .catch((error) => {
+      // Handle errors
+      console.error("Error:", error);
+      alert("An error occurred. Please try again later.");
+    });
+});

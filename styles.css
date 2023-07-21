@@ -353,6 +353,18 @@ Copyright: 2023 */
 
  /** == == == == ==     5. Image full screen section   == == == == == **/
 
+ .section-img {
+     background-color: var(--clr-background-main);
+ }
+
+ .section-img-cover {
+     height: 33em;
+     width: 100%;
+     object-fit: cover;
+ }
+
+ /** == == == == ==     6. Projects section   == == == == == **/
+
  .section {
      background-color: var(--clr-background-main);
      padding: 5em 4em 0;
@@ -393,7 +405,7 @@ Copyright: 2023 */
      background: var(--clr-borders);
      bottom: 0;
      left: 0;
-     transform: translateY(calc(100% - 1px));
+     transform: translateY(100%);
  }
 
  .project-card-wrapper a {
@@ -437,9 +449,8 @@ Copyright: 2023 */
  }
 
 
-
  .animate-card {
-     animation: fadeIn 2s forwards;
+     animation: fadeIn 1s forwards;
  }
 
  /** == == == == ==     7. Skills section   == == == == == **/
@@ -492,7 +503,19 @@ Copyright: 2023 */
      padding: 12px 20px;
      display: inline-block;
      border: 1px solid var(--clr-borders);
+     background-color: var(--clr-background-main);
+
  }
+
+ .form input[type="text"]:focus,
+ .form input[type="email"]:focus,
+ .form textarea:focus {
+     border-color: var(--clr-text-primary);
+     outline-color: var(--clr-text-primary);
+     border-radius: 0;
+     background-color: var(--clr-text-secondary);
+ }
+
 
  .form button[type="submit"] {
      width: 195px;
