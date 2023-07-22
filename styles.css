@@ -514,6 +514,8 @@ Copyright: 2023 */
      outline-color: var(--clr-text-primary);
      border-radius: 0;
      background-color: var(--clr-text-secondary);
+     outline: none;
+     border: 1px solid var(--clr-text-primary);
  }
 
 
@@ -527,7 +529,7 @@ Copyright: 2023 */
      line-height: 32px;
      letter-spacing: 0.64px;
      padding: 14px 20px;
-     margin: 40px 0 80px;
+     margin: 40px 0 190px;
      border: none;
      cursor: pointer;
 
@@ -575,6 +577,19 @@ Copyright: 2023 */
 
      .top-container {
          max-width: 700px;
+     }
+
+     .project-card {
+         padding-bottom: 24px;
+     }
+
+     .project-card-wrapper::after {
+         content: none
+     }
+
+     .project-card-title,
+     .project-card-text {
+         padding-left: 0;
      }
 
      .skills-container {
