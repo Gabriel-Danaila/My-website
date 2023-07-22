@@ -483,7 +483,6 @@ Copyright: 2023 */
  /** == == == == ==     8. Contact Form   == == == == == **/
 
 
-
  .form {
      max-width: 600px;
      background-color: var(--clr-background-main)
@@ -513,7 +512,6 @@ Copyright: 2023 */
      border-color: var(--clr-text-primary);
      outline-color: var(--clr-text-primary);
      border-radius: 0;
-     background-color: var(--clr-text-secondary);
      outline: none;
      border: 1px solid var(--clr-text-primary);
  }
@@ -532,7 +530,6 @@ Copyright: 2023 */
      margin: 40px 0 190px;
      border: none;
      cursor: pointer;
-
  }
 
  /* .form button[type="submit"]:hover {
