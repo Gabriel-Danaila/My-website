@@ -576,6 +576,10 @@ Copyright: 2023 */
          max-width: 700px;
      }
 
+     .parallax {
+         transform: none !important;
+     }
+
      .project-card {
          padding-bottom: 24px;
      }
@@ -610,10 +614,6 @@ Copyright: 2023 */
      html {
 
          scroll-padding-top: 80px;
-     }
-
-     .parallax {
-         transform: none !important;
      }
 
      .header {
