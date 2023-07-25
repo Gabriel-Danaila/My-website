@@ -14,6 +14,17 @@
       rel="stylesheet"
     />
 
+    <!-- Required Core Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="../node_modules/@glidejs/glide/dist/css/glide.core.min.css"
+    />
+
+    <!-- Optional Theme Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="../node_modules/@glidejs/glide/dist/css/glide.theme.min.css"
+    />
     <!-- Link to your main stylesheet.   -->
     <link rel="stylesheet" type="text/css" href="../css/toyota-style.css" />
 
@@ -21,7 +32,9 @@
     <link rel="icon" href="../img/fav.png" />
 
     <!-- Link to your custom JavaScript file -->
-    <script defer src="../script.js"></script>
+
+    <script defer src="../script.js/toyota.js"></script>
+    <script src="../node_modules/@glidejs/glide/dist/glide.min.js"></script>
   </head>
   <body>
     <header class="header" id="home">
@@ -47,6 +60,211 @@
         </button>
       </nav>
     </header>
-    <section></section>
+
+    <section class="toyota-carousel">
+      <div class="container-left">
+        <div class="glide-left">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide">
+                <img
+                  class="img 1"
+                  src="../img/toyota_1.png"
+                  alt="toyota Image 1"
+                />
+              </li>
+
+              <li class="glide__slide">
+                <img
+                  class="img 2"
+                  src="../img/toyota_2.png"
+                  alt="toyota Image 2"
+                />
+              </li>
+
+              <li class="glide__slide">
+                <img
+                  class="img 3"
+                  src="../img/toyota_3.png"
+                  alt="toyota Image 3"
+                />
+              </li>
+
+              <li class="glide__slide">
+                <img
+                  class="img 4"
+                  src="../img/toyota_4.png"
+                  alt="toyota Image 4"
+                />
+              </li>
+
+              <li class="glide__slide">
+                <img
+                  class="img 5"
+                  src="../img/toyota_5.png"
+                  alt="toyota Image 5"
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-middle">
+        <div class="glide-middle">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide">
+                <div class="content">
+                  <h2 class="content-title">Drive like you always have</h2>
+                  <p class="content-text">
+                    The Toyota C-HR offers the versatility to drive using either
+                    electric energy or a combination of petrol and electric
+                    power to fully optimise performance, meaning you can drive
+                    the way you always have.
+                  </p>
+                </div>
+              </li>
+
+              <li class="glide__slide">
+                <div class="content">
+                  <h2 class="content-title">Saving fuel and money</h2>
+                  <p class="content-text">
+                    Our research shows that Toyota Hybrids like the Toyota C-HR
+                    can save you money by using less fuel through the use of the
+                    electric motor. Business users can save too, with reduced
+                    BIK contributions.
+                  </p>
+                </div>
+              </li>
+
+              <li class="glide__slide">
+                <div class="content">
+                  <h2 class="content-title">The right car for you</h2>
+                  <p class="content-text">
+                    We understand that deciding the on the right fuel type for
+                    your new car can be tricky, which is why we have created a
+                    helpful tool for you to explore the difference.
+                  </p>
+                </div>
+              </li>
+
+              <li class="glide__slide">
+                <div class="content">
+                  <h2 class="content-title">Drive like you always have</h2>
+                  <p class="content-text">
+                    The Toyota C-HR offers the versatility to drive using either
+                    electric energy or a combination of petrol and electric
+                    power to fully optimise performance, meaning you can drive
+                    the way you always have.
+                  </p>
+                </div>
+              </li>
+
+              <li class="glide__slide">
+                <div class="content">
+                  <h2 class="content-title">Drive like you always have</h2>
+                  <p class="content-text">
+                    The Toyota C-HR offers the versatility to drive using either
+                    electric energy or a combination of petrol and electric
+                    power to fully optimise performance, meaning you can drive
+                    the way you always have.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-right">
+        <div class="glide-right">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide">
+                <div class="img-container-right">
+                  <img
+                    class="img 2"
+                    src="../img/toyota_2.png"
+                    alt="toyota Image 2"
+                  />
+                </div>
+              </li>
+
+              <li class="glide__slide">
+                <div class="img-container-right">
+                  <img
+                    class="img 3"
+                    src="../img/toyota_3.png"
+                    alt="toyota Image 3"
+                  />
+                </div>
+              </li>
+
+              <li class="glide__slide">
+                <div class="img-container-right">
+                  <img
+                    class="img 4"
+                    src="../img/toyota_4.png"
+                    alt="toyota Image 4"
+                  />
+                </div>
+              </li>
+
+              <li class="glide__slide">
+                <div class="img-container-right">
+                  <img
+                    class="img 5"
+                    src="../img/toyota_5.png"
+                    alt="toyota Image 5"
+                  />
+                </div>
+              </li>
+
+              <li class="glide__slide">
+                <div class="img-container-right">
+                  <img
+                    class="img 1"
+                    src="../img/toyota_1.png"
+                    alt="toyota Image 1"
+                  />
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="glide__arrows" data-glide-el="controls">
+      <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+        prev
+      </button>
+      <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+        next
+      </button>
+    </div>
+
+    <!-- <section>
+      <div class="container">
+        <div class="left-container">
+          <img class="img 1" src="../img/toyota_1.png" alt="toyota Image 1" />
+        </div>
+        <div class="center-container">
+          <div class="content">
+            <h2 class="content-title">Drive like you always have</h2>
+            <p class="content-text">
+              The Toyota C-HR offers the versatility to drive using either
+              electric energy or a combination of petrol and electric power to
+              fully optimise performance, meaning you can drive the way you
+              always have.
+            </p>
+          </div>
+        </div>
+        <div class="right-container">
+          <img class="img 2" src="../img/toyota_2.png" alt="toyota Image 2" />
+        </div>
+      </div>
+    </section> -->
   </body>
 </html>

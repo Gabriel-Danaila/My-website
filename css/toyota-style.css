@@ -223,7 +223,60 @@ select {
     transform: translateY(-0.7rem) rotate(-45deg);
 }
 
+/** == == == == ==     3. Carousel Toyota   == == == == == **/
 
+.toyota-carousel {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: last baseline; */
+    background-color: var(--clr-background-main);
+    padding: 2rem 0;
+}
+
+
+.container-left {
+    width: 792px;
+    height: 500px;
+}
+
+.container-left img {
+    width: 792px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.container-middle {
+    width: 432px;
+    height: 150px;
+    margin: 30px 64px;
+}
+
+.container-right {
+    margin-top: 100px;
+    width: 120px;
+    height: 400px;
+}
+
+.container-right img {
+    width: 120px;
+    height: 400px;
+    object-fit: cover;
+    overflow: hidden;
+    display: block;
+
+}
+
+
+.container-left,
+.container-middle,
+.container-right {
+    display: inline-block;
+}
+
+
+
+
+/** == == == == ==     4. @ media query    == == == == == **/
 
 @media only screen and (max-width:45em) {
     html {
