@@ -46,8 +46,8 @@ bower_components
 build/Release
 
 # Dependency directories
-# node_modules/
-# json_packages/
+node_modules/
+jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -205,6 +205,7 @@ Thumbs.db
 .env.test.local
 .env.production.local
 .env.local
+node_modules/
 npm-debug.log
 yarn-error.log
 *.env
@@ -335,7 +336,7 @@ target/
 
 ### minim ###
 
-# /node_modules
+/node_modules
 npm-debug.log
 .DS_Store
 /*.env
