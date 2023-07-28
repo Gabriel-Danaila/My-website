@@ -205,7 +205,6 @@ Thumbs.db
 .env.test.local
 .env.production.local
 .env.local
-node_modules/
 npm-debug.log
 yarn-error.log
 *.env
@@ -336,7 +335,7 @@ target/
 
 ### minim ###
 
-/node_modules
+# /node_modules
 npm-debug.log
 .DS_Store
 /*.env
