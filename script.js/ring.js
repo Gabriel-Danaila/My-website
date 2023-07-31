@@ -56,3 +56,8 @@ window.onload = function () {
 };
 
 // ! == == == ==   hover container  == == == ==
+function updateLargeImage(imgPath) {
+  let largeImageDiv = document.querySelector(".large-image");
+  largeImageDiv.style.backgroundImage = `url(${imgPath})`;
+  largeImageDiv.style.display = "block"; // show the large-image div when an image is set
+}

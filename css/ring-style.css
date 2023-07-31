@@ -245,7 +245,7 @@ select {
 /** == == == == ==     3. ring-hver section   == == == == == **/
 
 .ring-hover {
-    background-color: #b62c2c;
+    background-color: #ffffff;
     /* width: 100%; */
     /* height: 973px; */
     padding: 88px 52px 157px;
@@ -278,6 +278,16 @@ select {
 }
 
 
+
+
+.images-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    max-width: 1336px;
+}
+
 .overlay {
     position: absolute;
     top: 0;
@@ -288,12 +298,26 @@ select {
     z-index: 10;
 }
 
+/* .large-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 5;
+} */
 
-.images-container {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    position: relative;
+.large-image {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 5;
 }
 
 
