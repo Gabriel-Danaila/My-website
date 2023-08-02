@@ -56,8 +56,54 @@ window.onload = function () {
 };
 
 // ! == == == ==   hover container  == == == ==
-function updateLargeImage(imgPath) {
+
+let clearTimer = null;
+
+function updateLargeImage(imgPath, textImgNumber) {
+  if (window.innerWidth <= 720) {
+    return;
+  }
+
+  // If there's a pending clear operation, cancel it
+  if (clearTimer !== null) {
+    clearTimeout(clearTimer);
+    clearTimer = null;
+  }
+
   let largeImageDiv = document.querySelector(".large-image");
   largeImageDiv.style.backgroundImage = `url(${imgPath})`;
-  largeImageDiv.style.display = "block"; // show the large-image div when an image is set
+  largeImageDiv.style.opacity = "1";
+
+  let textDiv = document.querySelector(".text-img" + textImgNumber);
+  textDiv.classList.add("show");
+  // textDiv.style.opacity = "1";
+}
+
+function clearLargeImage() {
+  if (window.innerWidth <= 720) {
+    return;
+  }
+
+  let largeImageDiv = document.querySelector(".large-image");
+  largeImageDiv.style.opacity = "0";
+  clearTimer = setTimeout(function () {
+    if (largeImageDiv.style.opacity == "0") {
+      largeImageDiv.style.backgroundImage = "";
+    }
+    clearTimer = null;
+  }, 500);
+
+  hideAllTexts();
+}
+
+function hideAllTexts() {
+  if (window.innerWidth <= 720) {
+    return;
+  }
+
+  for (let i = 1; i <= 4; i++) {
+    let textDiv = document.querySelector(".text-img" + i);
+    textDiv.classList.remove("show");
+    // textDiv.style.opacity = "0";
+  }
 }
