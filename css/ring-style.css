@@ -331,30 +331,9 @@ select {
     transition: opacity 0.5s ease-in-out; */
 }
 
-.text-img1 {
-    position: absolute;
-    left: 28px;
-    right: 28px;
-    bottom: 40px;
-    z-index: 6;
-}
-
-.text-img2 {
-    position: absolute;
-    left: 28px;
-    right: 28px;
-    bottom: 40px;
-    z-index: 6;
-}
-
-.text-img3 {
-    position: absolute;
-    left: 28px;
-    right: 28px;
-    bottom: 40px;
-    z-index: 6;
-}
-
+.text-img1,
+.text-img2,
+.text-img3,
 .text-img4 {
     position: absolute;
     left: 28px;
@@ -362,7 +341,6 @@ select {
     bottom: 40px;
     z-index: 6;
 }
-
 
 
 .text-img .title,
@@ -391,11 +369,6 @@ select {
 .text-img.show .img-btn {
     transition-delay: 0.6s;
 }
-
-
-
-
-
 
 .title {
     font-family: "Equip", sans-serif;
@@ -432,30 +405,9 @@ select {
     margin-bottom: 0;
 }
 
-.text-img1-preview {
-    text-align: center;
-    position: absolute;
-    left: 28px;
-    right: 28px;
-    bottom: 40px;
-}
-
-.text-img2-preview {
-    text-align: center;
-    position: absolute;
-    left: 28px;
-    right: 28px;
-    bottom: 40px;
-}
-
-.text-img3-preview {
-    text-align: center;
-    position: absolute;
-    left: 28px;
-    right: 28px;
-    bottom: 40px;
-}
-
+.text-img1-preview,
+.text-img2-preview,
+.text-img3-preview,
 .text-img4-preview {
     text-align: center;
     position: absolute;
@@ -463,6 +415,7 @@ select {
     right: 28px;
     bottom: 40px;
 }
+
 
 /* ==== hover ==== */
 

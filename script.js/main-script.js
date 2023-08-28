@@ -30,7 +30,7 @@ document.querySelectorAll(".navbar-list a").forEach((link) => {
   });
 });
 
-// ! == == == ==   paralax  == == == ==
+// ! == == == ==   parallax  == == == ==
 
 window.addEventListener("scroll", function () {
   if (window.innerWidth > 720) {
@@ -51,7 +51,7 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// ! == == == ==   grid cards animation   == == == ==
+// ! == == == ==   project text animation   == == == ==
 
 const observerOptions = {
   root: null,
@@ -79,3 +79,21 @@ document.querySelectorAll(".project-card").forEach((projectCard, index) => {
   projectCard.style.animationDelay = `${index * 100}ms`;
   observer.observe(projectCard);
 });
+
+// ! == == == ==   projects cards loading image base on screen size   == == == ==
+
+function updateProjectImage() {
+  const image1 = document.querySelector("#toyota-img");
+  const image2 = document.querySelector("#ring-img");
+
+  if (window.innerWidth <= 720) {
+    image1.src = "img/toyota-small.jpeg";
+    image2.src = "img/ring-small.jpeg";
+  } else {
+    image1.src = "img/toyota-large.jpeg";
+    image2.src = "img/ring-large.jpeg";
+  }
+}
+
+window.addEventListener("resize", updateProjectImage);
+window.addEventListener("load", updateProjectImage);
