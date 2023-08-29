@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gabriel Danaila</title>
+
+    <!-- Links for google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Link to your main stylesheet.   -->
+    <link rel="stylesheet" type="text/css" href="../css/ring-module1.css" />
+
+    <!--  Link to the favicon for your webpage.-->
+    <link rel="icon" href="../img/LogoFavicon.svg" />
+
+    <!-- Link to your custom JavaScript file -->
+    <script defer src="../script.js/ring-module1.js"></script>
+  </head>
+  <body>
+    <header class="header" id="home">
+      <nav class="navbar" id="navbar">
+        <div class="navbar-logo">
+          <p>Gabriel</p>
+        </div>
+        <ul class="navbar-list" , role="list">
+          <li>
+            <a href="../index.html#projects"> Projects </a>
+          </li>
+          <li>
+            <a href="../index.html#skills "> Skills </a>
+          </li>
+          <li>
+            <a href="../index.html#contact"> Contact </a>
+          </li>
+        </ul>
+        <button class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+    <section class="ring-hover">
+      <div class="ring-hover-title">
+        <p>Ring has whole-home security covered</p>
+      </div>
+      <div class="ring-hover-text">
+        <p>Explore smart security devices for inside and outside your home.</p>
+      </div>
+      <div class="images-container">
+        <div class="large-image"></div>
+
+        <div
+          class="small-img-container"
+          onmouseover="updateLargeImage('../img/ring-module1/ring-img1-large.png', 1)"
+          onmouseout="clearLargeImage()"
+        >
+          <div class="overlay"></div>
+          <img
+            class="img1"
+            src="../img/ring-module1/ring-img1.png"
+            alt="ring-doorbells"
+          />
+          <div class="text-img text-img1">
+            <p class="title">Video Doorbells</p>
+            <p class="text">
+              Whether battery-powerd, plug-in, or hardwired, Ring Video
+              Doorbells allow you to see, hear and speak to visitors, from
+              anywhere
+            </p>
+            <button class="img-btn">View more</button>
+          </div>
+          <div class="text-img1-preview">
+            <p class="title main-title">Video Doorbells</p>
+          </div>
+        </div>
+        <div
+          class="small-img-container"
+          onmouseover="updateLargeImage('../img/ring-module1/ring-img2-large.png', 2)"
+          onmouseout="clearLargeImage()"
+        >
+          <div class="overlay"></div>
+          <img
+            class="img2"
+            src="../img/ring-module1/ring-img2.png"
+            alt="ring-cams"
+          />
+          <div class="text-img text-img2">
+            <p class="title">Security Cams</p>
+            <p class="text">
+              Add smart home protection inside or outside with a Ring Security
+              Camera, so you'll know what's happening at home, night and day
+            </p>
+            <button class="img-btn">View more</button>
+          </div>
+          <div class="text-img2-preview">
+            <p class="title main-title">Security Cams</p>
+          </div>
+        </div>
+        <div
+          class="small-img-container"
+          onmouseover="updateLargeImage('../img/ring-module1/ring-img3-large.png', 3)"
+          onmouseout="clearLargeImage()"
+        >
+          <div class="overlay"></div>
+          <img
+            class="img3"
+            src="../img/ring-module1/ring-img3.png"
+            alt="ring-system"
+          />
+          <div class="text-img text-img3">
+            <p class="title">Ring Alarm</p>
+            <p class="text">
+              Your family, pets, property - we protect it all. Ring Alarm packs
+              the power of whole-home security into affordable, DIY package.
+            </p>
+            <button class="img-btn">View more</button>
+          </div>
+          <div class="text-img3-preview">
+            <p class="title main-title">Ring Alarm</p>
+          </div>
+        </div>
+        <div
+          class="small-img-container"
+          onmouseover="updateLargeImage('../img/ring-module1/ring-img4-large.png', 4)"
+          onmouseout="clearLargeImage()"
+        >
+          <div class="overlay"></div>
+          <img
+            class="img4"
+            src="../img/ring-module1/ring-img4.png"
+            alt="ring-protect"
+          />
+          <div class="text-img text-img4">
+            <p class="title">Ring Protect</p>
+            <p class="text">
+              Get even more out of your Ring devices with Ring Protect for as
+              low as £3.49 a month per device. Try it free for the first 30
+              days.
+            </p>
+            <button class="img-btn">View more</button>
+          </div>
+          <div class="text-img4-preview">
+            <p class="title main-title">Ring Protect</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

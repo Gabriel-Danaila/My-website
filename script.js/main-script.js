@@ -87,11 +87,11 @@ function updateProjectImage() {
   const image2 = document.querySelector("#ring-img");
 
   if (window.innerWidth <= 720) {
-    image1.src = "img/toyota-small.jpeg";
-    image2.src = "img/ring-small.jpeg";
+    image1.src = "img/main-page/toyota-small.jpeg";
+    image2.src = "img/main-page/ring-small.jpeg";
   } else {
-    image1.src = "img/toyota-large.jpeg";
-    image2.src = "img/ring-large.jpeg";
+    image1.src = "img/main-page/toyota-large.jpeg";
+    image2.src = "img/main-page/ring-large.jpeg";
   }
 }
 

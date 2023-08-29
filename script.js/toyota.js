@@ -30,163 +30,52 @@ document.querySelectorAll(".navbar-list a").forEach((link) => {
   });
 });
 
-// ! == == == ==   toyota carousel with automatic sliding and timeing == == == ==
+// ! == == == ==   project text animation   == == == ==
 
-// import Glide from "@glidejs/glide";
-
-// const optionsLeft = {
-//   type: "carousel",
-//   startAt: 0,
-//   perView: 1,
-//   autoplay: 8000,
-// };
-// const optionsMiddle = {
-//   type: "carousel",
-//   startAt: 0,
-//   perView: 1,
-//   autoplay: 8000,
-// };
-// const optionsRight = {
-//   type: "carousel",
-//   startAt: 0,
-//   perView: 1,
-//   autoplay: 8000,
-// };
-// let glideLeft = new Glide(".glide-left", optionsLeft);
-// let glideMiddle = new Glide(".glide-middle", optionsMiddle);
-// let glideRight = new Glide(".glide-right", optionsRight);
-
-// glideLeft.mount();
-// glideMiddle.mount();
-// glideRight.mount();
-
-// let glideSlidesLeft = document.querySelector(".container-left .glide__slides");
-// let glideSlidesMiddle = document.querySelector(
-//   ".container-middle .glide__slides"
-// );
-// let glideSlidesRight = document.querySelector(
-//   ".container-right .glide__slides"
-// );
-
-// glideSlidesRight.addEventListener("click", function () {
-//   glideLeft.go(">");
-//   glideMiddle.go(">");
-//   glideRight.go(">");
-// });
-
-// glideSlidesLeft.addEventListener("click", function () {
-//   glideLeft.go("<");
-//   glideMiddle.go("<");
-//   glideRight.go("<");
-// });
-
-// let carousels = [glideSlidesLeft, glideSlidesMiddle, glideSlidesRight];
-
-// carousels.forEach(function (carousel) {
-//   carousel.addEventListener("mouseenter", function () {
-//     glideLeft.pause();
-//     glideMiddle.pause();
-//     glideRight.pause();
-
-//     setTimeout(() => {
-//       glideLeft.go(">");
-//       glideMiddle.go(">");
-//       glideRight.go(">");
-//       glideLeft.play();
-//       glideMiddle.play();
-//       glideRight.play();
-//     }, 8000);
-//   });
-
-//   carousel.addEventListener("mouseleave", function () {
-//     glideLeft.play();
-//     glideMiddle.play();
-//     glideRight.play();
-//   });
-// });
-
-// let svg1 = document.getElementById("animated-svg1");
-// let circle1 = document.getElementById("animated-circle1");
-// let group1 = document.getElementById("animated-group1");
-// let path1 = document.getElementById("animated-path1");
-
-// document
-//   .getElementById("animated-path1")
-//   .addEventListener("animationend", function (e) {
-//     // Check for the ending of the last animation
-//     if (e.animationName === "fadeOut") {
-//       document.getElementById("svg-container1").innerHTML = `
-//           <svg
-//               class="button-svg-anim"
-//               width="15.994318008422852"
-//               height="15.994318008422852"
-//               viewBox="0 0 15.994318008422852 15.994318008422852"
-//               xmlns="http://www.w3.org/2000/svg"
-//           >
-//               <circle
-//                   class="button-svg-anim-circle"
-//                   opacity=".5"
-//                   cx="7.997159004211426"
-//                   cy="7.997159004211426"
-//                   fill="#000000"
-//                   r="3.198864"
-//                   style="opacity: 0.5"
-//               ></circle>
-//           </svg>
-//       `;
-//     }
-//   });
-
-// carousel without automatic sliding
-const optionsLeft = {
-  type: "carousel",
-  startAt: 0,
-  perView: 1,
+const observerOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.5, // Adjust this value to when you want the animation to start. 0.5 means when 50% of the item is visible
 };
-const optionsMiddle = {
-  type: "carousel",
-  startAt: 0,
-  perView: 1,
-};
-const optionsRight = {
-  type: "carousel",
-  startAt: 0,
-  perView: 1,
-};
-let glideLeft = new Glide(".glide-left", optionsLeft);
-let glideMiddle = new Glide(".glide-middle", optionsMiddle);
-let glideRight = new Glide(".glide-right", optionsRight);
 
-glideLeft.mount();
-glideMiddle.mount();
-glideRight.mount();
+function observerCallback(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // If the element is in the viewport
+      entry.target.classList.add("animate-card"); // Add the animation class
 
-let glideSlidesLeft = document.querySelector(".container-left .glide__slides");
-let glideSlidesRight = document.querySelector(
-  ".container-right .glide__slides"
-);
+      // You can unobserve the entry after animation has been applied so it doesn't get re-applied
+      observer.unobserve(entry.target);
+    }
+  });
+}
 
-glideSlidesRight.addEventListener("click", function () {
-  glideLeft.go(">");
-  glideMiddle.go(">");
-  glideRight.go(">");
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+// Start observing each project card
+
+document.querySelectorAll(".project-card").forEach((projectCard, index) => {
+  projectCard.style.animationDelay = `${index * 100}ms`;
+  observer.observe(projectCard);
 });
 
-glideSlidesLeft.addEventListener("click", function () {
-  glideLeft.go("<");
-  glideMiddle.go("<");
-  glideRight.go("<");
-});
+// ! == == == ==   projects cards loading image base on screen size   == == == ==
 
-// media query
+function updateProjectImage() {
+  const image1 = document.querySelector("#toyota-1-img");
+  const image2 = document.querySelector("#toyota-2-img");
+  const image3 = document.querySelector("#toyota-3-img");
 
-window.addEventListener("resize", function () {
-  const breakpoint = window.matchMedia("(max-width: 720px)");
-
-  if (breakpoint.matches) {
-    glideRight.destroy();
+  if (window.innerWidth <= 720) {
+    image1.src = "../img/toyota/toyota-1-small.png";
+    image2.src = "../img/toyota/toyota-2-small.png";
+    image3.src = "../img/toyota/toyota-3-small.png";
   } else {
-    glideRight.mount();
+    image1.src = "../img/toyota/toyota-1-large.png";
+    image2.src = "../img/toyota/toyota-2-large.png";
+    image3.src = "../img/toyota/toyota-3-large.png";
   }
-});
-// final
+}
+
+window.addEventListener("resize", updateProjectImage);
+window.addEventListener("load", updateProjectImage);
