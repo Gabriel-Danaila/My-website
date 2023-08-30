@@ -7,13 +7,9 @@ Copyright: 2023 */
 0. Root variables and minim reset
 1. Header 
 2. Hamburger menu 
-3. Main hero section
-4. Paralax
-5. Project section
-6. Skills section
-7. Contact Form
-8. Animation
-9. @media query
+3. Project section
+4. Animation
+5. @media query
   
 ======================================== */
 
@@ -229,7 +225,7 @@ Copyright: 2023 */
  }
 
 
- /** == == == == ==     5. Projects section   == == == == == **/
+ /** == == == == ==     3. Projects section   == == == == == **/
 
 
  .title {
@@ -323,7 +319,7 @@ Copyright: 2023 */
  }
 
 
- /** == == == == ==    8. Animation   == == == == ==  **/
+ /** == == == == ==    4. Animation   == == == == ==  **/
 
  .project-card-content {
      --opacity-initial: 0;
@@ -360,19 +356,12 @@ Copyright: 2023 */
      transition-delay: 0.6s
  }
 
- /** == == == == ==    9. @media query    == == == == ==  **/
+ /** == == == == ==    5. @media query    == == == == ==  **/
 
 
  @media only screen and (max-width:83em) {
 
-     .section-hero-title {
-         font-size: var(--fs-40);
-         text-align: center;
-     }
 
-     .section-hero-subtitle {
-         font-size: var(--fs-16);
-     }
 
      .title {
          padding: 5em 1.5em 0;
