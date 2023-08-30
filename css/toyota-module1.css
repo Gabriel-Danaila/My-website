@@ -283,7 +283,7 @@ Copyright: 2023 */
 
  .parallax-text {
      position: absolute;
-     transform: translate(30%, -30%);
+     transform: translate(30%);
      color: white;
      text-align: left;
      max-width: 480px;

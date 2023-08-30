@@ -34,11 +34,15 @@ document.querySelectorAll(".navbar-list a").forEach((link) => {
 
 // parallax text and img
 
-window.addEventListener("scroll", function () {
+function adjustParallaxTextPosition() {
   const scrolled = window.scrollY;
   const parallaxText = document.querySelector(".parallax-text");
-  parallaxText.style.top = 65 + scrolled * -0.1 + "%";
-});
+  parallaxText.style.top = 50 + scrolled * -0.1 + "%";
+}
+
+// Call once to set initial position and then call on each scroll
+adjustParallaxTextPosition();
+window.addEventListener("scroll", adjustParallaxTextPosition);
 
 // parallax images
 
