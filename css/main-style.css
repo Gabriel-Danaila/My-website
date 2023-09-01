@@ -584,9 +584,6 @@ Copyright: 2023 */
 
 
 
-     .section-project {
-         padding: 0;
-     }
 
      .project-card-title {
          font-size: var(--fs-28)
@@ -664,6 +661,9 @@ Copyright: 2023 */
      }
 
 
+     .section-project {
+         padding: 0;
+     }
 
      .project-card:nth-of-type(1) {
          margin-bottom: 0;
