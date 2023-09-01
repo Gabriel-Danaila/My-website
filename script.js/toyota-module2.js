@@ -43,22 +43,22 @@ const images = [
   document.getElementById("image3"),
 ];
 
-// Function to fade in image
+// Function to fade in/out image
 function fadeImageIn(img) {
   if (currentImage) {
     currentImage.style.opacity = 0; // Fade out
     setTimeout(() => {
-      currentImage.classList.add("hidden-image"); // Hide the image
-      currentImage.style.opacity = 0; // Reset the opacity to 0 for the next round
-    }, 300); // This time should match your CSS transition time
+      currentImage.classList.add("hidden-image");
+      currentImage.style.opacity = 0;
+    }, 300);
   }
 
-  img.style.opacity = 0; // Start the new image with opacity 0
-  img.classList.remove("hidden-image"); // Make sure it's visible
+  img.style.opacity = 0;
+  img.classList.remove("hidden-image");
 
   setTimeout(() => {
     img.style.opacity = 1; // Fade in
-  }, 300); // This time should match your CSS transition time
+  }, 300);
 
   currentImage = img;
 }
@@ -68,10 +68,10 @@ document.querySelector(".accordion-button").classList.add("is-open");
 const firstAccordionContent = document.querySelector(".accordion-content");
 firstAccordionContent.style.maxHeight =
   firstAccordionContent.scrollHeight + "px";
-fadeImageIn(images[0]); // Assuming images[0] is your first image
+fadeImageIn(images[0]);
 currentImage = images[0];
 currentImageIndex = 0;
-// Add the rotate-icon class to the SVG within the first accordion
+
 document.querySelector(".accordion-button .icon").classList.add("rotate-icon");
 
 // Event listener for accordion buttons an for turnning the svg icon
