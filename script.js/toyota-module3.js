@@ -31,162 +31,138 @@ document.querySelectorAll(".navbar-list a").forEach((link) => {
 });
 
 // ! == == == ==   toyota carousel with automatic sliding and timeing == == == ==
+// use wrapped the entire code to ensure the DOM is fully loaded before the script runs
+window.addEventListener("DOMContentLoaded", () => {
+  const leftSlides = document.getElementById("slideLeft");
+  const middleContent = document.getElementById("slideMiddle");
+  const rightSlides = document.getElementById("slideRight");
 
-// import Glide from "@glidejs/glide";
+  let leftIndex = 0;
+  let middleIndex = 0;
+  let rightIndex = 0;
 
-// const optionsLeft = {
-//   type: "carousel",
-//   startAt: 0,
-//   perView: 1,
-//   autoplay: 8000,
-// };
-// const optionsMiddle = {
-//   type: "carousel",
-//   startAt: 0,
-//   perView: 1,
-//   autoplay: 8000,
-// };
-// const optionsRight = {
-//   type: "carousel",
-//   startAt: 0,
-//   perView: 1,
-//   autoplay: 8000,
-// };
-// let glideLeft = new Glide(".glide-left", optionsLeft);
-// let glideMiddle = new Glide(".glide-middle", optionsMiddle);
-// let glideRight = new Glide(".glide-right", optionsRight);
+  function updateSlides(direction) {
+    const leftImages = leftSlides.querySelectorAll("li");
+    const middleContents = middleContent.querySelectorAll("li");
+    const rightImages = rightSlides.querySelectorAll("li");
 
-// glideLeft.mount();
-// glideMiddle.mount();
-// glideRight.mount();
+    const slideClass = direction === "ArrowLeft" ? "slide-right" : "slide-left";
 
-// let glideSlidesLeft = document.querySelector(".container-left .glide__slides");
-// let glideSlidesMiddle = document.querySelector(
-//   ".container-middle .glide__slides"
-// );
-// let glideSlidesRight = document.querySelector(
-//   ".container-right .glide__slides"
-// );
+    leftImages.forEach((img, index) => {
+      img.classList.remove("slide-left", "slide-right");
+      if (index === leftIndex) {
+        img.style.display = "block";
+        img.classList.add(slideClass);
+      } else {
+        img.style.display = "none";
+      }
+    });
 
-// glideSlidesRight.addEventListener("click", function () {
-//   glideLeft.go(">");
-//   glideMiddle.go(">");
-//   glideRight.go(">");
-// });
+    middleContents.forEach((content, index) => {
+      content.classList.remove("slide-left", "slide-right");
+      if (index === middleIndex) {
+        content.style.display = "block";
+        content.classList.add(slideClass);
+      } else {
+        content.style.display = "none";
+      }
+    });
 
-// glideSlidesLeft.addEventListener("click", function () {
-//   glideLeft.go("<");
-//   glideMiddle.go("<");
-//   glideRight.go("<");
-// });
-
-// let carousels = [glideSlidesLeft, glideSlidesMiddle, glideSlidesRight];
-
-// carousels.forEach(function (carousel) {
-//   carousel.addEventListener("mouseenter", function () {
-//     glideLeft.pause();
-//     glideMiddle.pause();
-//     glideRight.pause();
-
-//     setTimeout(() => {
-//       glideLeft.go(">");
-//       glideMiddle.go(">");
-//       glideRight.go(">");
-//       glideLeft.play();
-//       glideMiddle.play();
-//       glideRight.play();
-//     }, 8000);
-//   });
-
-//   carousel.addEventListener("mouseleave", function () {
-//     glideLeft.play();
-//     glideMiddle.play();
-//     glideRight.play();
-//   });
-// });
-
-// let svg1 = document.getElementById("animated-svg1");
-// let circle1 = document.getElementById("animated-circle1");
-// let group1 = document.getElementById("animated-group1");
-// let path1 = document.getElementById("animated-path1");
-
-// document
-//   .getElementById("animated-path1")
-//   .addEventListener("animationend", function (e) {
-//     // Check for the ending of the last animation
-//     if (e.animationName === "fadeOut") {
-//       document.getElementById("svg-container1").innerHTML = `
-//           <svg
-//               class="button-svg-anim"
-//               width="15.994318008422852"
-//               height="15.994318008422852"
-//               viewBox="0 0 15.994318008422852 15.994318008422852"
-//               xmlns="http://www.w3.org/2000/svg"
-//           >
-//               <circle
-//                   class="button-svg-anim-circle"
-//                   opacity=".5"
-//                   cx="7.997159004211426"
-//                   cy="7.997159004211426"
-//                   fill="#000000"
-//                   r="3.198864"
-//                   style="opacity: 0.5"
-//               ></circle>
-//           </svg>
-//       `;
-//     }
-//   });
-
-// carousel without automatic sliding
-const optionsLeft = {
-  type: "carousel",
-  startAt: 0,
-  perView: 1,
-};
-const optionsMiddle = {
-  type: "carousel",
-  startAt: 0,
-  perView: 1,
-};
-const optionsRight = {
-  type: "carousel",
-  startAt: 0,
-  perView: 1,
-};
-let glideLeft = new Glide(".glide-left", optionsLeft);
-let glideMiddle = new Glide(".glide-middle", optionsMiddle);
-let glideRight = new Glide(".glide-right", optionsRight);
-
-glideLeft.mount();
-glideMiddle.mount();
-glideRight.mount();
-
-let glideSlidesLeft = document.querySelector(".container-left .glide__slides");
-let glideSlidesRight = document.querySelector(
-  ".container-right .glide__slides"
-);
-
-glideSlidesRight.addEventListener("click", function () {
-  glideLeft.go(">");
-  glideMiddle.go(">");
-  glideRight.go(">");
-});
-
-glideSlidesLeft.addEventListener("click", function () {
-  glideLeft.go("<");
-  glideMiddle.go("<");
-  glideRight.go("<");
-});
-
-// media query
-
-window.addEventListener("resize", function () {
-  const breakpoint = window.matchMedia("(max-width: 720px)");
-
-  if (breakpoint.matches) {
-    glideRight.destroy();
-  } else {
-    glideRight.mount();
+    rightImages.forEach((img, index) => {
+      img.classList.remove("slide-left", "slide-right");
+      if (index === rightIndex) {
+        img.style.display = "block";
+        img.classList.add(slideClass);
+      } else {
+        img.style.display = "none";
+      }
+    });
   }
+
+  // Navigation function
+  function handleNavigation(direction) {
+    const leftImages = leftSlides.querySelectorAll("li");
+    const middleContents = middleContent.querySelectorAll("li");
+    const rightImages = rightSlides.querySelectorAll("li");
+
+    if (direction === "ArrowLeft") {
+      leftIndex = (leftIndex - 1 + leftImages.length) % leftImages.length;
+      middleIndex =
+        (middleIndex - 1 + middleContents.length) % middleContents.length;
+      rightIndex = (rightIndex - 1 + rightImages.length) % rightImages.length;
+    } else if (direction === "ArrowRight") {
+      leftIndex = (leftIndex + 1) % leftImages.length;
+      middleIndex = (middleIndex + 1) % middleContents.length;
+      rightIndex = (rightIndex + 1) % rightImages.length;
+    }
+
+    updateSlides(direction);
+  }
+
+  // Flag to check if mouse clicks should be enabled
+  let enableMouseClick = true;
+
+  // Event listener for keyboard arrows
+  document.addEventListener("keydown", function (event) {
+    handleNavigation(event.code);
+  });
+
+  // Event listener for mouse click on left container
+  document
+    .getElementById("container-left")
+    .addEventListener("click", function () {
+      if (enableMouseClick) {
+        handleNavigation("ArrowLeft");
+      }
+    });
+
+  // Event listener for mouse click on right container
+  document
+    .getElementById("container-right")
+    .addEventListener("click", function () {
+      if (enableMouseClick) {
+        handleNavigation("ArrowRight");
+      }
+    });
+
+  // Event listener for left-arrow button click
+  document.getElementById("prevBtn").addEventListener("click", function () {
+    handleNavigation("ArrowLeft");
+  });
+
+  // Event listener for right-arrow button click
+  document.getElementById("nextBtn").addEventListener("click", function () {
+    handleNavigation("ArrowRight");
+  });
+
+  // Function to update the cursor style based on window size
+  function updateCursor() {
+    const leftContainer = document.getElementById("container-left");
+    const rightContainer = document.getElementById("container-right");
+
+    if (window.innerWidth <= 768) {
+      // Adjust 768 to whatever breakpoint you need
+      enableMouseClick = false;
+      leftContainer.style.cursor = "default";
+      rightContainer.style.cursor = "default";
+    } else {
+      // If screen size is larger, use the custom SVG cursor
+      const cursorSvgLeft =
+        'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none"><circle cx="25" cy="25" r="25" fill="%23F5F5F5"/><path d="M29.3465 16.8964L22.4419 25.0002L29.3465 33.1039" stroke="%23282830" stroke-width="1.5"/></svg>\'), auto';
+      const cursorSvgRight =
+        'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none"><circle cx="25" cy="25" r="25" transform="rotate(-180 25 25)" fill="%23F5F5F5"/><path d="M22.4419 16.8964L29.3465 25.0002L22.4419 33.1039" stroke="%23282830" stroke-width="1.5"/></svg>\'), auto';
+
+      leftContainer.style.cursor = cursorSvgLeft;
+      rightContainer.style.cursor = cursorSvgRight;
+    }
+  }
+
+  // Initial call to set the first image
+  updateSlides();
+
+  // Initial call to set cursor
+  updateCursor();
+
+  // Event listener for window resize
+  window.addEventListener("resize", updateCursor);
 });
-// final

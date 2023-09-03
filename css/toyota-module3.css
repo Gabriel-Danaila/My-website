@@ -7,19 +7,21 @@ Copyright: 2023 */
 0. Root variables and minim reset
 1. Header 
 2. Hamburger menu 
-3. Main hero section
-4. Paralax
-5. Image full screen section 
-6. Project section
-7. Skills section
-8. Contact Form
-9. Animation Keyframes 
-10. @media query
-  
+3. Carousel typografy
+4. Carousel layout
+5. Animation
+6. @media query
+ 
 ======================================== */
 
 
 /** == == == == ==     0. Root variables and minim reset    == == == == == **/
+
+@font-face {
+    font-family: "Toyota-Light";
+    src: url(../fonts/Toyota/ToyotaType-Light.ttf) format("truetype");
+}
+
 
 
 :root {
@@ -59,7 +61,6 @@ html {
     font-size: 100%;
     height: 100%;
     box-sizing: border-box;
-    overflow: auto;
     scroll-behavior: smooth;
 
 }
@@ -67,10 +68,11 @@ html {
 body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
-    font-family: "Roboto", sans-serif;
+    font-family: "Toyota-Light", "Roboto", sans-serif;
     line-height: 1.5;
     -webkit-text-size-adjust: none;
     background-color: var(--clr-background-main);
+    overflow: hidden;
 
 }
 
@@ -98,7 +100,8 @@ a:active {
 
 }
 
-ul[role="list"] {
+ul,
+li {
     list-style: none;
 }
 
@@ -226,39 +229,9 @@ select {
     transform: translateY(-0.7rem) rotate(-45deg);
 }
 
-/** == == == == ==     3. Carousel Toyota   == == == == == **/
-/* .full-screen {
-    max-width: 100%;
-    height: 860px
-} */
-
-.toyota-carousel {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--clr-background-main);
-    padding: 10rem 0;
-}
-
-
-.container-left {
-    width: 792px;
-    height: 500px;
-}
-
-.container-left img {
-    width: 792px;
-    height: 500px;
-    object-fit: cover;
-}
-
-.container-middle {
-    width: 432px;
-    height: 150px;
-    margin: 95px 64px;
-}
-
+/** == == == == ==     3. Carousel Typogray  == == == == == **/
 .content-title {
-    font-size: var(--fs-32);
+    font-size: 34px;
     line-height: 40px;
     color: #282830;
     padding-bottom: 16px;
@@ -270,115 +243,122 @@ select {
     padding-bottom: 32px;
 }
 
-.button-text {
+.content-button {
     padding: .75rem 1.5rem;
     background-color: #282830;
-    color: var(--clr-text-secondary);
+    color: #ffffff;
     line-height: 24px;
     border: none;
 }
 
+/** == == == == ==     4. Carousel Layout  == == == == == **/
+
+
+.carousel {
+    display: flex;
+    justify-content: space-between;
+    gap: 64px;
+}
+
+
+.container-left {
+    max-width: 780px;
+}
+
+.container-middle {
+    align-self: center;
+    max-width: 432px;
+}
+
 .container-right {
-    margin-top: 100px;
-    width: 120px;
-    height: 400px;
+    align-self: flex-end;
+    max-width: 150px;
+}
+
+.container-left img {
+    object-fit: cover;
+    height: 600px;
 }
 
 .container-right img {
-    width: 120px;
-    height: 400px;
     object-fit: cover;
-    overflow: hidden;
-    display: block;
+    height: 400px;
 }
+
 
 
 .container-left,
 .container-middle,
 .container-right {
-    display: inline-block;
+    overflow: hidden;
 }
 
-
-.container-left * {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none"><circle cx="25" cy="25" r="25" fill="%23F5F5F5"/><path d="M29.3465 16.8964L22.4419 25.0002L29.3465 33.1039" stroke="%23282830" stroke-width="1.5"/></svg>'), auto;
-
-}
 
 
 .container-middle * {
     cursor: default;
 }
 
-.container-right * {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none"><circle cx="25" cy="25" r="25" transform="rotate(-180 25 25)" fill="%23F5F5F5"/><path d="M22.4419 16.8964L29.3465 25.0002L22.4419 33.1039" stroke="%23282830" stroke-width="1.5"/></svg>'), auto;
-}
 
 
-.glide__arrow {
+#prevBtn {
     display: none;
+    /* position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 1; */
 }
 
-/* the dots */
-
-.main-sgv-container {
-    position: relative;
-    bottom: 100px;
-    padding-left: 648px;
-    display: flex;
+#nextBtn {
+    display: none;
+    /* position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 1; */
 }
 
 
-.main-sgv-carusel-bullet {
-    display: block;
-    margin-right: 16px;
+/** == == == == ==     5. Animation == == == == == **/
+
+.slide-left {
+    animation: slideLeft ease 1s;
 }
 
-.main-sgv-carusel-bullet:last-child {
-    margin-right: 0
-}
-
-@keyframes draw {
-    from {
-        stroke-dashoffset: 45.553;
-    }
-
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-@keyframes scaleDown {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(0.3);
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100%);
         opacity: 0;
     }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
-.button-svg-anim-path {
-    animation: draw 8s linear forwards, scaleDown .5s 8s ease-in-out forwards, fadeOut 1s 8s ease-in-out forwards;
-    transform-origin: 50% 50%;
+
+.slide-right {
+    animation: slideRight ease 1s;
 }
 
-/** == == == == ==     4. @ media query    == == == == == **/
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+/** == == == == ==     6. @ media query    == == == == == **/
 
 @media only screen and (max-width:45em) {
-    html {
-        scroll-padding-top: 80px;
-    }
 
     .header {
         position: fixed;
@@ -396,18 +376,52 @@ select {
         display: none;
     }
 
-
-    .toyota-carousel {
+    .carousel {
         flex-direction: column;
-        gap: 50px
+        align-items: center;
+    }
+
+    .container-left,
+    .container-middle {
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
+
+    .container-left * {
+        cursor: default;
     }
 
     .container-right {
         display: none;
     }
 
-    .container-left * {
-        cursor: default
+    #prevBtn,
+    #nextBtn {
+        display: block;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 15;
+
+    }
+
+    #prevBtn {
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+
+    }
+
+    #nextBtn {
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+
+
     }
 
 }
