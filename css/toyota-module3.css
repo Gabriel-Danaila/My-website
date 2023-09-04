@@ -230,6 +230,7 @@ select {
 }
 
 /** == == == == ==     3. Carousel Typogray  == == == == == **/
+
 .content-title {
     font-size: 34px;
     line-height: 40px;
@@ -355,7 +356,6 @@ select {
 
 
 
-
 /** == == == == ==     6. @ media query    == == == == == **/
 
 @media only screen and (max-width:45em) {
@@ -379,21 +379,26 @@ select {
     .carousel {
         flex-direction: column;
         align-items: center;
+        gap: 24px;
     }
 
     .container-left,
     .container-middle {
         position: relative;
-        width: 100%;
-        text-align: center;
     }
 
-    .container-left * {
-        cursor: default;
+
+    .container-left img {
+        height: 400px;
     }
 
     .container-right {
         display: none;
+    }
+
+    .container-middle {
+        text-align: center;
+        max-width: 332px;
     }
 
     #prevBtn,
@@ -411,14 +416,14 @@ select {
 
     #prevBtn {
         left: 10px;
-        top: 50%;
+        top: 70%;
         transform: translateY(-50%);
 
     }
 
     #nextBtn {
         right: 10px;
-        top: 50%;
+        top: 70%;
         transform: translateY(-50%);
 
 
