@@ -84,6 +84,7 @@ body {
     font-family: "Roboto", sans-serif;
     line-height: 1.5;
     -webkit-text-size-adjust: none;
+
 }
 
 
@@ -242,15 +243,12 @@ select {
 /** == == == == ==     3. ring-hover-carousel section   == == == == == **/
 
 .ring-hover {
-    background-color: #ffffff;
-    /* width: 100%; */
-    /* height: 973px; */
+    background-color: var(--clr-background-main);
     padding: 88px 52px 157px;
 }
 
 .ring-hover-title,
 .ring-hover-text {
-    /* width: 100%; */
     color: #424242;
     text-align: center;
     margin: 0 auto;
@@ -295,7 +293,6 @@ select {
 
 
 .large-image {
-    /* display: none; */
     position: absolute;
     top: 0;
     left: 0;
@@ -304,6 +301,7 @@ select {
     background-size: cover;
     background-position: center;
     z-index: 5;
+    border-radius: 20px;
 
     transition: opacity 0.5s ease-in-out;
     opacity: 0;
@@ -314,7 +312,6 @@ select {
     width: 334px;
     height: auto;
     position: relative;
-
 }
 
 .small-img-container img {
@@ -323,12 +320,20 @@ select {
     object-fit: cover;
 }
 
+.img1 {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.img4 {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
 .text-img {
     width: 285px;
     text-align: center;
 
-    /* opacity: 0;
-    transition: opacity 0.5s ease-in-out; */
 }
 
 .text-img1,
@@ -476,6 +481,11 @@ select {
 
     .small-img-container {
         width: 375px;
+    }
+
+    .img1,
+    .img4 {
+        border-radius: 0;
     }
 
     .main-title {
