@@ -24,6 +24,8 @@
     <script defer src="../script.js/ring-module1.js"></script>
   </head>
   <body>
+    <!-- remove this div when finished -->
+    <!-- <div id="screenSize" class="screenSize"></div> -->
     <header class="header" id="home">
       <nav class="navbar" id="navbar">
         <div class="navbar-logo">
@@ -62,109 +64,125 @@
         </button>
       </nav>
     </header>
-    <section class="ring-hover">
-      <div class="ring-hover-title">
-        <p>Ring has whole-home security covered</p>
-      </div>
-      <div class="ring-hover-text">
-        <p>Explore smart security devices for inside and outside your home.</p>
-      </div>
-      <div class="images-container">
-        <div class="large-image"></div>
 
-        <div
-          class="small-img-container"
-          onmouseover="updateLargeImage('../img/ring-module1/ring-img1-large.png', 1)"
-          onmouseout="clearLargeImage()"
-        >
-          <div class="overlay"></div>
-          <img
-            class="img1"
-            src="../img/ring-module1/ring-img1.png"
-            alt="ring-doorbells"
-          />
-          <div class="text-img text-img1">
-            <p class="title">Video Doorbells</p>
-            <p class="text">
-              Whether battery-powerd, plug-in, or hardwired, Ring Video
-              Doorbells allow you to see, hear and speak to visitors, from
-              anywhere
-            </p>
-            <button class="img-btn">View more</button>
+    <article class="article-section">
+      <p class="article-title">Video Doorbell Elite</p>
+      <p class="article-text">
+        A professional-grade solution with power over ethernet, a flush mount
+        and a sleek design.
+      </p>
+    </article>
+
+    <section class="container">
+      <div class="left-container">
+        <div class="left-images-container">
+          <img src="../img/ring-module1/black-left.png" class="show" />
+          <img src="../img/ring-module1/satin-left.png" class="hidden" />
+          <img src="../img/ring-module1/pearl-left.png" class="hidden" />
+          <img src="../img/ring-module1/bronz-left.png" class="hidden" />
+        </div>
+        <div class="svg-container">
+          <svg id="button1">
+            <svg
+              width="26"
+              height="25"
+              viewBox="0 0 26 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <circle cx="13" cy="12.5" r="9.5" fill="#282828" class="dot" />
+                <circle
+                  class="circle show-circle"
+                  cx="13"
+                  cy="12.5"
+                  r="12"
+                  stroke="black"
+                />
+              </g>
+            </svg>
+          </svg>
+          <svg id="button2">
+            <svg
+              width="26"
+              height="25"
+              viewBox="0 0 26 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <circle cx="13" cy="12.5" r="9.5" fill="#C3C9C9" class="dot" />
+                <circle
+                  class="circle hidden-circle"
+                  cx="13"
+                  cy="12.5"
+                  r="12"
+                  stroke="black"
+                />
+              </g>
+            </svg>
+          </svg>
+          <svg id="button3">
+            <svg
+              width="26"
+              height="25"
+              viewBox="0 0 26 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <circle cx="13" cy="12.5" r="9.5" fill="#D2CEBB" class="dot" />
+                <circle
+                  class="circle hidden-circle"
+                  cx="13"
+                  cy="12.5"
+                  r="12"
+                  stroke="black"
+                />
+              </g>
+            </svg>
+          </svg>
+          <svg id="button4">
+            <svg
+              width="26"
+              height="25"
+              viewBox="0 0 26 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <circle cx="13" cy="12.5" r="9.5" fill="#352822" class="dot" />
+                <circle
+                  class="circle hidden-circle"
+                  cx="13"
+                  cy="12.5"
+                  r="12"
+                  stroke="black"
+                />
+              </g>
+            </svg>
+          </svg>
+        </div>
+        <div class="text-container" id="sentence">
+          <div class="row">
+            <span class="active" id="span1">Satin Black</span>
+            <span>,</span>
+            <span id="span2">Satin Nickel</span>
+            <span>,</span>
           </div>
-          <div class="text-img1-preview">
-            <p class="title main-title">Video Doorbells</p>
+          <div class="row">
+            <span id="span3">Pearl-White </span>
+            <span>and</span>
+            <span id="span4">Venetian-Bronze</span>
           </div>
         </div>
-        <div
-          class="small-img-container"
-          onmouseover="updateLargeImage('../img/ring-module1/ring-img2-large.png', 2)"
-          onmouseout="clearLargeImage()"
-        >
-          <div class="overlay"></div>
-          <img
-            class="img2"
-            src="../img/ring-module1/ring-img2.png"
-            alt="ring-cams"
-          />
-          <div class="text-img text-img2">
-            <p class="title">Security Cams</p>
-            <p class="text">
-              Add smart home protection inside or outside with a Ring Security
-              Camera, so you'll know what's happening at home, night and day
-            </p>
-            <button class="img-btn">View more</button>
-          </div>
-          <div class="text-img2-preview">
-            <p class="title main-title">Security Cams</p>
-          </div>
-        </div>
-        <div
-          class="small-img-container"
-          onmouseover="updateLargeImage('../img/ring-module1/ring-img3-large.png', 3)"
-          onmouseout="clearLargeImage()"
-        >
-          <div class="overlay"></div>
-          <img
-            class="img3"
-            src="../img/ring-module1/ring-img3.png"
-            alt="ring-system"
-          />
-          <div class="text-img text-img3">
-            <p class="title">Ring Alarm</p>
-            <p class="text">
-              Your family, pets, property - we protect it all. Ring Alarm packs
-              the power of whole-home security into affordable, DIY package.
-            </p>
-            <button class="img-btn">View more</button>
-          </div>
-          <div class="text-img3-preview">
-            <p class="title main-title">Ring Alarm</p>
-          </div>
-        </div>
-        <div
-          class="small-img-container"
-          onmouseover="updateLargeImage('../img/ring-module1/ring-img4-large.png', 4)"
-          onmouseout="clearLargeImage()"
-        >
-          <div class="overlay"></div>
-          <img
-            class="img4"
-            src="../img/ring-module1/ring-img4.png"
-            alt="ring-protect"
-          />
-          <div class="text-img text-img4">
-            <p class="title">Ring Protect</p>
-            <p class="text">
-              Get even more out of your Ring devices with Ring Protect for as
-              low as £3.49 a month per device. Try it free for the first 30
-              days.
-            </p>
-            <button class="img-btn">View more</button>
-          </div>
-          <div class="text-img4-preview">
-            <p class="title main-title">Ring Protect</p>
-          </div>
+      </div>
+      <div class="right-container">
+        <div class="right-images-container">
+          <img src="../img/ring-module1/black-right.png" class="show" />
+          <img src="../img/ring-module1/satin-right.png" class="hidden" />
+          <img src="../img/ring-module1/pearl-right.png" class="hidden" />
+          <img src="../img/ring-module1/bronz-right.png" class="hidden" />
         </div>
       </div>
     </section>

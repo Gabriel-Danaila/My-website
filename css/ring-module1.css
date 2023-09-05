@@ -16,24 +16,21 @@ Copyright: 2023 */
 
 /** == == == == ==     0. Root variables and minim reset    == == == == == **/
 @font-face {
-    font-family: "Equip";
+    font-family: "Equip-Thin";
     src: url(../fonts/Equip/Hoftype\ -\ Equip-Thin.otf) format("opentype");
-    font-weight: 200;
-    font-style: normal;
+
 }
 
 @font-face {
-    font-family: "Equip";
+    font-family: "Equip-Light";
     src: url(../fonts/Equip/Hoftype\ -\ Equip-ExtraLight.otf) format("opentype");
-    font-weight: 300;
-    font-style: normal;
+
 }
 
 @font-face {
-    font-family: "Equip";
+    font-family: "Equip-Bold";
     src: url(../fonts/Equip/Hoftype\ -\ Equip-Bold.otf) format("opentype");
-    font-weight: 500;
-    font-style: normal;
+
 }
 
 :root {
@@ -50,6 +47,7 @@ Copyright: 2023 */
     --fs-20: 1.25rem;
     --fs-24: 1.5rem;
     --fs-32: 2rem;
+    --fs-42: 2.6rem;
     --fs-48: 3rem;
     --fs-64: 4rem;
 
@@ -81,12 +79,17 @@ html {
 body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Roboto", sans-serif; */
     line-height: 1.5;
     -webkit-text-size-adjust: none;
 
-}
+    /* to keep the entyre  project center on scren size ultrawide */
+    max-width: 1500px;
+    /* to prevent side scrolling */
+    margin: 0 auto;
 
+
+}
 
 
 img,
@@ -126,7 +129,7 @@ select {
 /** == == == == ==     1. Header   == == == == == **/
 
 .header {
-    background-color: var(--clr-background-main);
+    background-color: #ffffff;
     padding: 2.5em 4em;
     z-index: 10;
 }
@@ -238,198 +241,169 @@ select {
     transform: translateY(-0.7rem) rotate(-45deg);
 }
 
+/** == == == == ==     Screen size - remove when done with disaign  == == == == == **/
+/* .screenSize {
+    width: 250px;
+    height: 30px;
+    position: sticky;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background-color: #ffffff;
+    color: #000000;
+} */
+
+/** == == == == ==     3. Typografy  == == == == == **/
 
 
-/** == == == == ==     3. ring-hover-carousel section   == == == == == **/
-
-.ring-hover {
-    background-color: var(--clr-background-main);
-    padding: 88px 52px 157px;
-}
-
-.ring-hover-title,
-.ring-hover-text {
+.article-section p:first-child {
+    font-family: "Equip-Thin";
+    font-size: var(--fs-42);
     color: #424242;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.ring-hover-title {
-    font-family: "Equip", sans-serif;
-    font-weight: 200;
     line-height: 52px;
-    font-size: 42px;
-    max-width: 865px;
+    padding-bottom: 1rem
 }
 
-.ring-hover-text {
-    font-family: "Equip", sans-serif;
-    font-weight: 300;
+.article-section p:last-child {
+    font-family: "Equip-Light";
+    font-size: var(--fs-18);
+    color: #424242;
     line-height: 28px;
-    font-size: 18px;
-    max-width: 520px;
-    margin-top: 8px;
-    margin-bottom: 40px;
 }
 
 
-.images-container {
-    margin: 0 auto;
+
+
+/** == == == == ==     4. Carousel  == == == == == **/
+
+.article-section {
+    padding-top: 3rem;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 3.5rem 3.5rem 4rem;
+}
+
+.svg-container {
     display: flex;
     justify-content: center;
-    position: relative;
-    max-width: 1336px;
+    max-width: 150px;
+    height: 25px;
+    margin: 0 auto 20px;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0);
-    z-index: 10;
+.svg-container svg {
+    cursor: pointer;
 }
 
-
-.large-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: 5;
+.left-images-container {
+    /* position: relative; */
+    width: 570px;
+    height: 575px;
     border-radius: 20px;
-
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
+    overflow: hidden;
+    margin: auto
 }
 
-
-.small-img-container {
-    width: 334px;
-    height: auto;
-    position: relative;
-}
-
-.small-img-container img {
+.left-images-container img {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
 }
 
-.img1 {
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+.right-images-container {
+    /* position: relative; */
+    width: 664px;
+    height: 720px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: auto
 }
 
-.img4 {
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+.right-images-container img {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.text-img {
-    width: 285px;
+.text-container {
     text-align: center;
-
+    /* width: 250px; */
+    margin: 0 auto;
 }
 
-.text-img1,
-.text-img2,
-.text-img3,
-.text-img4 {
+
+
+/* adding span text colors */
+.row {
+    font-family: "Equip-Light";
+    color: #BCBCBE;
+    display: inline-block;
+    width: 100%;
+}
+
+.active {
+    font-family: "Equip-Bold";
+    color: #424242;
+}
+
+/* adding circle around the color buttons */
+.hidden-circle {
+    stroke: transparent;
+}
+
+.show-circle {
+    stroke: black;
+}
+
+
+
+/* animation for images slide */
+
+
+
+.right-images-container,
+.left-images-container {
+    position: relative;
+}
+
+.right-images-container img,
+.left-images-container img {
     position: absolute;
-    left: 28px;
-    right: 28px;
-    bottom: 40px;
-    z-index: 6;
+    top: 0;
+    left: 100%;
+    transition: left 0.5s ease-in-out;
 }
 
-
-.text-img .title,
-.text-img .text,
-.text-img .img-btn {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s, transform 0.5s;
+.right-images-container img.show,
+.left-images-container img.show {
+    left: 0;
 }
-
-.text-img.show .title,
-.text-img.show .text,
-.text-img.show .img-btn {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.text-img.show .title {
-    transition-delay: 0.2s;
-}
-
-.text-img.show .text {
-    transition-delay: 0.4s;
-}
-
-.text-img.show .img-btn {
-    transition-delay: 0.6s;
-}
-
-.title {
-    font-family: "Equip", sans-serif;
-    color: #ffffff;
-    font-weight: 300;
-    line-height: 40px;
-    font-size: 30px;
-    margin-bottom: 8px;
-}
-
-.text {
-    font-family: "Equip", sans-serif;
-    color: #ffffff;
-    font-weight: 200;
-    font-size: 16px;
-    line-height: 24px;
-    margin-bottom: 24px;
-}
-
-.img-btn {
-    font-family: "Equip", sans-serif;
-    color: #ffffff;
-    font-weight: 500;
-    line-height: 20px;
-    font-size: 16px;
-    padding: 14px 40px;
-    border: 2px solid #ffffff;
-    outline: none;
-    border-radius: 24px;
-    background: transparent;
-}
-
-.main-title {
-    margin-bottom: 0;
-}
-
-.text-img1-preview,
-.text-img2-preview,
-.text-img3-preview,
-.text-img4-preview {
-    text-align: center;
-    position: absolute;
-    left: 28px;
-    right: 28px;
-    bottom: 40px;
-}
-
-
-/* ==== hover ==== */
-
 
 /** == == == == ==     4. @ media query    == == == == == **/
-@media only screen and (max-width:45em) {
-    html {
-        scroll-padding-top: 80px;
+@media only screen and (max-width:80em) {
+    .container {
+        flex-direction: column;
+        padding: 1rem 1rem 4rem;
+        gap: 48px;
     }
+}
+
+@media only screen and (max-width:45em) {
+
+    /* body {
+        max-width: 700px;
+    } */
 
     .header {
         position: fixed;
@@ -447,96 +421,35 @@ select {
         display: none;
     }
 
-    .ring-hover {
-        padding: 153px 0 214px;
-        /* 153 because nav is out of flow and maesure froom top page */
+    .article-section {
+        padding: 7rem 1rem 0
     }
 
-    .ring-hover-title,
-    .ring-hover-text {
-        color: #000000;
-    }
-
-    .ring-hover-title {
-        font-family: "Equip", sans-serif;
-        font-weight: 200;
-        font-size: 24px;
+    .article-section p:first-child {
+        font-size: 28px;
         line-height: 34px;
-        max-width: 283px;
     }
 
-    .ring-hover-text {
-        font-family: "Equip", sans-serif;
-        font-weight: 300;
+    .article-section p:last-child {
         font-size: 14px;
         line-height: 20px;
-        max-width: 327px;
     }
 
-    .images-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
+
+
+    .left-images-container {
+        width: 350px;
+        height: 320px;
+
     }
 
-    .small-img-container {
-        width: 375px;
+    .right-images-container {
+        width: 344px;
+        height: 420px;
     }
 
-    .img1,
-    .img4 {
-        border-radius: 0;
-    }
-
-    .main-title {
-        display: none;
-    }
-
-    .overlay {
-        display: none;
-    }
-
-    /* .text-img {
-        width: 315px;
-    }
-
-    .title {
-        font-family: "Equip", sans-serif;
-        color: #ffffff;
-        font-weight: 300;
-        font-size: 24px;
-        line-height: 34px;
-    }
-
-    .text {
-        font-family: "Equip", sans-serif;
-        color: #ffffff;
-        font-weight: 200;
-        font-size: 14px;
-        line-height: 22px;
-    }
-
-    .img-btn {
-        font-family: "Equip", sans-serif;
-        color: #ffffff;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 18px;
-        padding: 11px 46px;
-        border: 2px solid #ffffff;
-        outline: none;
-        border-radius: 24px;
-        background: transparent;
-    }
-
-    .text-img1,
-    .text-img2,
-    .text-img3,
-    .text-img4 {
-        display: block;
-        position: absolute;
-        left: 30px;
+    /* .svg-container {
+        margin-top: 50px;
     } */
-
 
 }

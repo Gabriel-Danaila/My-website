@@ -1,3 +1,16 @@
+// ! == == == ==   window size to help with disaign == == == ==
+
+// function updateScreenSize() {
+//   const screenSizeDiv = document.getElementById("screenSize");
+//   screenSizeDiv.innerHTML = `Width: ${window.innerWidth}px, Height: ${window.innerHeight}px`;
+// }
+
+// // Update initially
+// updateScreenSize();
+
+// // Update whenever the window is resized
+// window.addEventListener("resize", updateScreenSize);
+
 // ! == == == ==   hamburger menu  == == == ==
 
 document.querySelector(".hamburger").addEventListener("click", function () {
@@ -30,80 +43,145 @@ document.querySelectorAll(".navbar-list a").forEach((link) => {
   });
 });
 
-// ! == == == ==   adding images on smaller screen size  == == == ==
-window.onload = function () {
-  let image1 = document.querySelector(".img1");
-  let image2 = document.querySelector(".img2");
-  let image3 = document.querySelector(".img3");
-  let image4 = document.querySelector(".img4");
+// ! == == == ==  animation  == == == ==
 
-  function resizeImage() {
-    if (window.innerWidth <= 720) {
-      image1.src = "../img/ring-module1/ring-img1-small.png";
-      image2.src = "../img/ring-module1/ring-img2-small.png";
-      image3.src = "../img/ring-module1/ring-img3-small.png";
-      image4.src = "../img/ring-module1/ring-img4-small.png";
+const buttons = [
+  document.getElementById("button1"),
+  document.getElementById("button2"),
+  document.getElementById("button3"),
+  document.getElementById("button4"),
+];
+
+const spans = [
+  document.getElementById("span1"),
+  document.getElementById("span2"),
+  document.getElementById("span3"),
+  document.getElementById("span4"),
+];
+
+// Function to update colors
+function updateTextColor(index) {
+  spans.forEach((span, i) => {
+    if (i === index) {
+      span.classList.add("active");
     } else {
-      image1.src = "../img/ring-module1/ring-img1.png";
-      image2.src = "../img/ring-module1/ring-img2.png";
-      image3.src = "../img/ring-module1/ring-img3.png";
-      image4.src = "../img/ring-module1/ring-img4.png";
+      span.classList.remove("active");
     }
-  }
-
-  window.onresize = resizeImage;
-  resizeImage();
-};
-
-// ! == == == ==   hover container  == == == ==
-
-let clearTimer = null;
-
-function updateLargeImage(imgPath, textImgNumber) {
-  if (window.innerWidth <= 720) {
-    return;
-  }
-
-  // If there's a pending clear operation, cancel it
-  if (clearTimer !== null) {
-    clearTimeout(clearTimer);
-    clearTimer = null;
-  }
-
-  let largeImageDiv = document.querySelector(".large-image");
-  largeImageDiv.style.backgroundImage = `url(${imgPath})`;
-  largeImageDiv.style.opacity = "1";
-
-  let textDiv = document.querySelector(".text-img" + textImgNumber);
-  textDiv.classList.add("show");
-  // textDiv.style.opacity = "1";
+  });
 }
 
-function clearLargeImage() {
-  if (window.innerWidth <= 720) {
-    return;
-  }
+function updateCircle(index) {
+  const activeCircles = document.querySelectorAll(".svg-container .circle");
 
-  let largeImageDiv = document.querySelector(".large-image");
-  largeImageDiv.style.opacity = "0";
-  clearTimer = setTimeout(function () {
-    if (largeImageDiv.style.opacity == "0") {
-      largeImageDiv.style.backgroundImage = "";
+  activeCircles.forEach((activeCircle, i) => {
+    if (i === index) {
+      activeCircle.classList.remove("hidden-circle");
+      activeCircle.classList.add("show-circle"); // if you want to style the active activeCircle
+    } else {
+      activeCircle.classList.add("hidden-circle");
+      activeCircle.classList.remove("show-circle");
     }
-    clearTimer = null;
-  }, 500);
-
-  hideAllTexts();
+  });
 }
 
-function hideAllTexts() {
-  if (window.innerWidth <= 720) {
-    return;
-  }
+// ====== with animation and no need for classes in html for images
+function updateLeftImages(index) {
+  const images = document.querySelectorAll(".left-images-container img");
 
-  for (let i = 1; i <= 4; i++) {
-    let textDiv = document.querySelector(".text-img" + i);
-    textDiv.classList.remove("show");
-    // textDiv.style.opacity = "0";
-  }
+  images.forEach((image, i) => {
+    if (i === index) {
+      image.style.left = "0";
+      image.style.opacity = "1";
+    } else {
+      image.style.left = "100%";
+      image.style.opacity = "0";
+    }
+  });
 }
+
+function updateRightImages(index) {
+  const images = document.querySelectorAll(".right-images-container img");
+
+  images.forEach((image, i) => {
+    if (i === index) {
+      image.style.left = "0"; // Show by setting left to 0
+      image.style.opacity = "1"; // Make it fully visible
+    } else {
+      image.style.left = "100%"; // Hide by setting left to 100%
+      image.style.opacity = "0"; // Make it transparent
+    }
+  });
+}
+
+// Attach event listeners to SVGs
+buttons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    updateTextColor(index);
+    updateCircle(index);
+    updateLeftImages(index);
+    updateRightImages(index);
+  });
+});
+
+// ======= with no animation ( need to add clsss for images in html first .show the rest .hidden)
+
+// function updateLeftImages(index) {
+//   const images = document.querySelectorAll(".left-images-container img");
+
+//   images.forEach((image, i) => {
+//     if (i === index) {
+//       image.classList.remove("hidden");
+//       image.classList.add("show"); // if you want to style the active image
+//     } else {
+//       image.classList.add("hidden");
+//       image.classList.remove("show");
+//     }
+//   });
+// }
+
+// function updateRightImages(index) {
+//   const images = document.querySelectorAll(".right-images-container img");
+
+//   images.forEach((image, i) => {
+//     if (i === index) {
+//       image.classList.remove("hidden");
+//       image.classList.add("show");
+//     } else {
+//       image.classList.add("hidden");
+//       image.classList.remove("show");
+//     }
+//   });
+// }
+
+// to check for issues
+// document.getElementById("span1").style.color = "red";
+// console.log(document.getElementById("span1").classList);
+
+//circle and dots resize base on the screen size
+
+function resizeCircles() {
+  const innerCircles = document.querySelectorAll(".dot");
+  const outerCircles = document.querySelectorAll(".circle");
+
+  innerCircles.forEach((circle) => {
+    if (window.innerWidth <= 768) {
+      circle.setAttribute("r", "6.5");
+    } else {
+      circle.setAttribute("r", "9.5");
+    }
+  });
+
+  outerCircles.forEach((circle) => {
+    if (window.innerWidth <= 768) {
+      circle.setAttribute("r", "9");
+    } else {
+      circle.setAttribute("r", "12");
+    }
+  });
+}
+
+// Initial call to set the attributes based on the initial window size
+resizeCircles();
+
+// Listen for window resize events
+window.addEventListener("resize", resizeCircles);
