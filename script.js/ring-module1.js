@@ -1,16 +1,3 @@
-// ! == == == ==   window size to help with disaign == == == ==
-
-// function updateScreenSize() {
-//   const screenSizeDiv = document.getElementById("screenSize");
-//   screenSizeDiv.innerHTML = `Width: ${window.innerWidth}px, Height: ${window.innerHeight}px`;
-// }
-
-// // Update initially
-// updateScreenSize();
-
-// // Update whenever the window is resized
-// window.addEventListener("resize", updateScreenSize);
-
 // ! == == == ==   hamburger menu  == == == ==
 
 document.querySelector(".hamburger").addEventListener("click", function () {
@@ -25,9 +12,7 @@ window.addEventListener("resize", function () {
     document.documentElement.clientWidth ||
     document.body.clientWidth;
 
-  // check if the window width is larger than your mobile breakpoint (in this case, 800px)
   if (width > 800) {
-    // if it is, remove the 'open' class from the hamburger and the navbar list
     let hamburger = document.querySelector(".hamburger");
     let navbarList = document.querySelector(".navbar-list");
 
@@ -35,6 +20,7 @@ window.addEventListener("resize", function () {
     navbarList.classList.remove("open");
   }
 });
+
 // to remove open class when link is triger
 document.querySelectorAll(".navbar-list a").forEach((link) => {
   link.addEventListener("click", () => {
@@ -84,7 +70,7 @@ function updateCircle(index) {
   });
 }
 
-// ====== with animation and no need for classes in html for images
+// ====== animation , no need for classes in html for images
 function updateLeftImages(index) {
   const images = document.querySelectorAll(".left-images-container img");
 
@@ -165,17 +151,25 @@ function resizeCircles() {
 
   innerCircles.forEach((circle) => {
     if (window.innerWidth <= 768) {
-      circle.setAttribute("r", "6.5");
-    } else {
-      circle.setAttribute("r", "9.5");
-    }
-  });
+      // Update the radius for the dot on smaller screens
+      innerCircles.forEach((circle) => {
+        circle.setAttribute("r", "6.5");
+      });
 
-  outerCircles.forEach((circle) => {
-    if (window.innerWidth <= 768) {
-      circle.setAttribute("r", "9");
+      // Update the radius for the circle on smaller screens
+      outerCircles.forEach((circle) => {
+        circle.setAttribute("r", "9");
+      });
     } else {
-      circle.setAttribute("r", "12");
+      // Reset the radius to original dimensions for the dot
+      innerCircles.forEach((circle) => {
+        circle.setAttribute("r", "9.5");
+      });
+
+      // Reset the radius to original dimensions for the circle
+      outerCircles.forEach((circle) => {
+        circle.setAttribute("r", "12");
+      });
     }
   });
 }

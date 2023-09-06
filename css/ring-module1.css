@@ -7,8 +7,8 @@ Copyright: 2023 */
 0. Root variables and minim reset
 1. Header 
 2. Hamburger menu 
-3. Main hero section
-4. Ring-hover-carousel section
+3. Typografy 
+4. Carousel 
 5. @media query
   
 ======================================== */
@@ -83,9 +83,7 @@ body {
     line-height: 1.5;
     -webkit-text-size-adjust: none;
 
-    /* to keep the entyre  project center on scren size ultrawide */
     max-width: 1500px;
-    /* to prevent side scrolling */
     margin: 0 auto;
 
 
@@ -241,18 +239,6 @@ select {
     transform: translateY(-0.7rem) rotate(-45deg);
 }
 
-/** == == == == ==     Screen size - remove when done with disaign  == == == == == **/
-/* .screenSize {
-    width: 250px;
-    height: 30px;
-    position: sticky;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    background-color: #ffffff;
-    color: #000000;
-} */
 
 /** == == == == ==     3. Typografy  == == == == == **/
 
@@ -366,12 +352,7 @@ select {
     stroke: black;
 }
 
-
-
 /* animation for images slide */
-
-
-
 .right-images-container,
 .left-images-container {
     position: relative;
@@ -390,7 +371,7 @@ select {
     left: 0;
 }
 
-/** == == == == ==     4. @ media query    == == == == == **/
+/** == == == == ==     5. @ media query    == == == == == **/
 @media only screen and (max-width:80em) {
     .container {
         flex-direction: column;
@@ -400,11 +381,6 @@ select {
 }
 
 @media only screen and (max-width:45em) {
-
-    /* body {
-        max-width: 700px;
-    } */
-
     .header {
         position: fixed;
         top: 0;
@@ -444,12 +420,7 @@ select {
     }
 
     .right-images-container {
-        width: 344px;
+        width: 350px;
         height: 420px;
     }
-
-    /* .svg-container {
-        margin-top: 50px;
-    } */
-
 }
