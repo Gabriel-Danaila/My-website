@@ -403,8 +403,14 @@ Copyright: 2023 */
 
      .image-container-position {
          position: static;
+         margin: 0 auto;
          height: 404px;
-         width: 425px;
+         width: 373px;
+         overflow: hidden;
+     }
+
+     .image-container img {
+         object-fit: cover;
      }
 
      .accordion-container {
