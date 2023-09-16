@@ -317,6 +317,9 @@ Copyright: 2023 */
  }
 
  /** == == == == ==    4. Animation   == == == == ==  **/
+ .header {
+     transition: transform 0.3s;
+ }
 
  .project-card-content {
      --opacity-initial: 0;

@@ -362,6 +362,9 @@ Copyright: 2023 */
  }
 
 
+ .header {
+     transition: transform 0.3s;
+ }
 
  /** == == == == ==     4. @media query   == == == == == **/
 

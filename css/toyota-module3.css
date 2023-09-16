@@ -320,6 +320,9 @@ select {
 
 
 /** == == == == ==     5. Animation == == == == == **/
+.header {
+    transition: transform 0.3s;
+}
 
 .slide-left {
     animation: slideLeft ease 1s;

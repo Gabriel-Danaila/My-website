@@ -424,6 +424,9 @@ select {
 
 /* ==== hover ==== */
 
+.header {
+    transition: transform 0.3s;
+}
 
 /** == == == == ==     4. @ media query    == == == == == **/
 @media only screen and (max-width:45em) {

@@ -30,6 +30,32 @@ document.querySelectorAll(".navbar-list a").forEach((link) => {
   });
 });
 
+// to autohide header on mobile screen size
+let lastScrollTop = 0; // Store the last scroll position
+
+window.addEventListener(
+  "scroll",
+  function () {
+    if (window.innerWidth <= 768) {
+      let currentScrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScrollTop > lastScrollTop) {
+        // Downward scroll - Hide header
+        document.querySelector(".header").style.transform = "translateY(-100%)";
+      } else {
+        // Upward scroll - Show header
+        document.querySelector(".header").style.transform = "translateY(0)";
+      }
+
+      lastScrollTop = currentScrollTop;
+    } else {
+      // Reset the header for larger screens
+      document.querySelector(".header").style.transform = "translateY(0)";
+    }
+  },
+  false
+);
 // ! == == == ==   toyota carousel with automatic sliding and timeing == == == ==
 // use wrapped the entire code to ensure the DOM is fully loaded before the script runs
 window.addEventListener("DOMContentLoaded", () => {
