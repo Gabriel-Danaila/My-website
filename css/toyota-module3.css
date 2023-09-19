@@ -286,8 +286,6 @@ select {
     height: 400px;
 }
 
-
-
 .container-left,
 .container-middle,
 .container-right {
@@ -295,11 +293,16 @@ select {
 }
 
 
-
 .container-middle * {
     cursor: default;
 }
 
+.slides li {
+    list-style-type: none;
+    min-width: 100%;
+    transition: transform 0.3s ease-in-out;
+    display: none;
+}
 
 
 #prevBtn {
@@ -309,6 +312,7 @@ select {
     right: 0;
     z-index: 1; */
 }
+
 
 #nextBtn {
     display: none;
