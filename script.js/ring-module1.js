@@ -88,7 +88,7 @@ function updateCircle(index) {
   activeCircles.forEach((activeCircle, i) => {
     if (i === index) {
       activeCircle.classList.remove("hidden-circle");
-      activeCircle.classList.add("show-circle"); // if you want to style the active activeCircle
+      activeCircle.classList.add("show-circle");
     } else {
       activeCircle.classList.add("hidden-circle");
       activeCircle.classList.remove("show-circle");
@@ -96,16 +96,44 @@ function updateCircle(index) {
   });
 }
 
-// ====== animation , no need for classes in html for images
+// ====== slide animation , no need for classes in html for images
+// function updateLeftImages(index) {
+//   const images = document.querySelectorAll(".left-images-container img");
+
+//   images.forEach((image, i) => {
+//     if (i === index) {
+//       image.style.left = "0";
+//       image.style.opacity = "1";
+//     } else {
+//       image.style.left = "100%";
+//       image.style.opacity = "0";
+//     }
+//   });
+// }
+
+// function updateRightImages(index) {
+//   const images = document.querySelectorAll(".right-images-container img");
+
+//   images.forEach((image, i) => {
+//     if (i === index) {
+//       image.style.left = "0"; // Show by setting left to 0
+//       image.style.opacity = "1"; // Make it fully visible
+//     } else {
+//       image.style.left = "100%"; // Hide by setting left to 100%
+//       image.style.opacity = "0"; // Make it transparent
+//     }
+//   });
+// }
+
+// ====== fade animation , no need for classes in html for images
+
 function updateLeftImages(index) {
   const images = document.querySelectorAll(".left-images-container img");
 
   images.forEach((image, i) => {
     if (i === index) {
-      image.style.left = "0";
       image.style.opacity = "1";
     } else {
-      image.style.left = "100%";
       image.style.opacity = "0";
     }
   });
@@ -116,11 +144,9 @@ function updateRightImages(index) {
 
   images.forEach((image, i) => {
     if (i === index) {
-      image.style.left = "0"; // Show by setting left to 0
-      image.style.opacity = "1"; // Make it fully visible
+      image.style.opacity = "1";
     } else {
-      image.style.left = "100%"; // Hide by setting left to 100%
-      image.style.opacity = "0"; // Make it transparent
+      image.style.opacity = "0";
     }
   });
 }
@@ -135,39 +161,15 @@ buttons.forEach((button, index) => {
   });
 });
 
-// ======= with no animation ( need to add clsss for images in html first .show the rest .hidden)
-
-// function updateLeftImages(index) {
-//   const images = document.querySelectorAll(".left-images-container img");
-
-//   images.forEach((image, i) => {
-//     if (i === index) {
-//       image.classList.remove("hidden");
-//       image.classList.add("show"); // if you want to style the active image
-//     } else {
-//       image.classList.add("hidden");
-//       image.classList.remove("show");
-//     }
-//   });
-// }
-
-// function updateRightImages(index) {
-//   const images = document.querySelectorAll(".right-images-container img");
-
-//   images.forEach((image, i) => {
-//     if (i === index) {
-//       image.classList.remove("hidden");
-//       image.classList.add("show");
-//     } else {
-//       image.classList.add("hidden");
-//       image.classList.remove("show");
-//     }
-//   });
-// }
-
-// to check for issues
-// document.getElementById("span1").style.color = "red";
-// console.log(document.getElementById("span1").classList);
+// Attach event listeners to Spans
+spans.forEach((span, index) => {
+  span.addEventListener("click", () => {
+    updateTextColor(index);
+    updateCircle(index);
+    updateLeftImages(index);
+    updateRightImages(index);
+  });
+});
 
 //circle and dots resize base on the screen size
 
@@ -198,6 +200,50 @@ function resizeCircles() {
       });
     }
   });
+}
+
+// swipe handelers
+
+let currentImageIndex = 0; // Assuming 0 is the starting index
+
+document
+  .querySelectorAll(".left-images-container, .right-images-container")
+  .forEach((container) => {
+    let startX = 0; // Starting X position
+
+    container.addEventListener("touchstart", (event) => {
+      startX = event.touches[0].clientX;
+    });
+
+    container.addEventListener("touchend", (event) => {
+      let endX = event.changedTouches[0].clientX;
+      handleSwipe(startX, endX);
+    });
+  });
+
+function handleSwipe(startX, endX) {
+  if (startX - endX > 50) {
+    // Swiped left
+    // Move to the next image if available
+    if (currentImageIndex < buttons.length - 1) {
+      currentImageIndex++;
+      updateUIForIndex(currentImageIndex);
+    }
+  } else if (endX - startX > 50) {
+    // Swiped right
+    // Move to the previous image if available
+    if (currentImageIndex > 0) {
+      currentImageIndex--;
+      updateUIForIndex(currentImageIndex);
+    }
+  }
+}
+
+function updateUIForIndex(index) {
+  updateTextColor(index);
+  updateCircle(index);
+  updateLeftImages(index);
+  updateRightImages(index);
 }
 
 // Initial call to set the attributes based on the initial window size

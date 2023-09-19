@@ -81,6 +81,8 @@ Copyright: 2023 */
      line-height: 1.5;
      -webkit-text-size-adjust: none;
      background: var(--clr-background-main);
+     max-width: 1512px;
+     margin: 0 auto;
  }
 
 
@@ -236,13 +238,6 @@ Copyright: 2023 */
  }
 
  /** == == == == ==     3. Typografy == == == == == **/
- /* .flex{
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     text-align: center;
- } */
 
  .title {
      font-family: "Toyota-Light";
@@ -265,42 +260,44 @@ Copyright: 2023 */
 
 
  /** == == == == ==     4. main-container   == == == == == **/
- .main-container {
-     position: relative;
- }
 
  .content {
+     position: relative;
      padding-top: 4rem;
      max-width: 640px;
      background-color: var(--clr-background-main);
  }
 
- .content-header,
  .accordion-item {
-     padding: 0 5rem 0
+     padding: 0 5rem;
+ }
+
+ .content-header {
+     padding: 4rem 5rem 0;
  }
 
  .description {
-     padding: 40px 0 64px
+     padding: 40px 0;
  }
 
  .image-container-position {
      position: absolute;
-     right: -30px;
+     right: -47vw;
      top: 0;
-     height: 654px;
+     height: 800px;
      width: 875px;
  }
 
  .image-container {
      position: relative;
      height: 100%;
-     object-fit: cover;
  }
 
  .image-container img {
      position: absolute;
      height: 100%;
+     object-fit: cover;
+
  }
 
  .hidden-image {
@@ -317,7 +314,7 @@ Copyright: 2023 */
  }
 
  .accordion-container {
-     padding-bottom: 250px
+     padding-bottom: 350px
  }
 
  .accordion-title {
@@ -350,7 +347,7 @@ Copyright: 2023 */
 
  hr {
      border: none;
-     border-top: 2px solid #DBDBDB
+     border-top: 1px solid #DBDBDB
  }
 
  .icon {
@@ -393,7 +390,7 @@ Copyright: 2023 */
 
      .content-header,
      .accordion-item {
-         padding: 0 1rem
+         padding: 1rem
      }
 
      .content-header {

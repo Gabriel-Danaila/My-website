@@ -69,44 +69,39 @@ const images = [
   document.getElementById("image3"),
 ];
 
-// Function to fade in/out image
+// Function to handle fading images in and out
 function fadeImageIn(img) {
   if (currentImage) {
-    currentImage.style.opacity = 0; // Fade out
+    currentImage.style.opacity = 0; // Fade out current image
     setTimeout(() => {
       currentImage.classList.add("hidden-image");
-      currentImage.style.opacity = 0;
     }, 300);
   }
 
-  img.style.opacity = 0;
   img.classList.remove("hidden-image");
-
   setTimeout(() => {
-    img.style.opacity = 1; // Fade in
+    img.style.opacity = 1; // Fade in new image
   }, 300);
 
-  currentImage = img;
+  currentImage = img; // Set the new image as the current image
 }
 
-// Open the first accordion and show its image
-document.querySelector(".accordion-button").classList.add("is-open");
-const firstAccordionContent = document.querySelector(".accordion-content");
-firstAccordionContent.style.maxHeight =
-  firstAccordionContent.scrollHeight + "px";
-fadeImageIn(images[0]);
-currentImage = images[0];
-currentImageIndex = 0;
-
-document.querySelector(".accordion-button .icon").classList.add("rotate-icon");
-
-// Event listener for accordion buttons an for turnning the svg icon
-
+// Attach click event listeners to each accordion button
 accordionButtons.forEach(function (button, index) {
   button.addEventListener("click", function () {
     const content = this.parentElement.nextElementSibling;
     const icon = this.querySelector(".icon");
 
+    // Close all other accordions
+    accordionButtons.forEach((otherButton, otherIndex) => {
+      if (otherIndex !== index) {
+        otherButton.classList.remove("is-open");
+        otherButton.querySelector(".icon").classList.remove("rotate-icon");
+        otherButton.parentElement.nextElementSibling.style.maxHeight = null;
+      }
+    });
+
+    // Toggle the clicked accordion
     if (this.classList.contains("is-open")) {
       this.classList.remove("is-open");
       icon.classList.remove("rotate-icon");
@@ -120,3 +115,11 @@ accordionButtons.forEach(function (button, index) {
     }
   });
 });
+
+// Set the first accordion to be open by default
+const firstAccordionButton = accordionButtons[0];
+firstAccordionButton.classList.add("is-open");
+firstAccordionButton.querySelector(".icon").classList.add("rotate-icon");
+firstAccordionButton.parentElement.nextElementSibling.style.maxHeight =
+  firstAccordionButton.parentElement.nextElementSibling.scrollHeight + "px";
+fadeImageIn(images[0]);

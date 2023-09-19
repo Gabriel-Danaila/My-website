@@ -63,7 +63,7 @@ window.addEventListener(
 function adjustParallaxTextPosition() {
   const scrolled = window.scrollY;
   const parallaxText = document.querySelector(".parallax-text");
-  parallaxText.style.top = 50 + scrolled * -0.1 + "%";
+  parallaxText.style.top = 78 + scrolled * -0.07 + "%";
 }
 
 // Call once to set initial position and then call on each scroll
@@ -75,7 +75,7 @@ window.addEventListener("scroll", adjustParallaxTextPosition);
 window.addEventListener("scroll", function () {
   const scrolled = window.scrollY;
   const parallaxText = document.querySelector(".parallax-layer-front");
-  parallaxText.style.top = 130 + scrolled * -0.08 + "%";
+  parallaxText.style.top = 110 + scrolled * -0.07 + "%";
 });
 
 // parallax zoom

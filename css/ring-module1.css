@@ -277,6 +277,7 @@ select {
 .svg-container {
     display: flex;
     justify-content: center;
+    gap: 8px;
     max-width: 150px;
     height: 25px;
     margin: 0 auto 20px;
@@ -287,7 +288,6 @@ select {
 }
 
 .left-images-container {
-    /* position: relative; */
     width: 570px;
     height: 575px;
     border-radius: 20px;
@@ -296,16 +296,12 @@ select {
 }
 
 .left-images-container img {
-    /* position: absolute;
-    top: 0;
-    left: 0; */
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 .right-images-container {
-    /* position: relative; */
     width: 664px;
     height: 720px;
     border-radius: 20px;
@@ -314,17 +310,14 @@ select {
 }
 
 .right-images-container img {
-    /* position: absolute;
-    top: 0;
-    left: 0; */
     width: 100%;
     height: 100%;
     object-fit: cover;
+
 }
 
 .text-container {
     text-align: center;
-    /* width: 250px; */
     margin: 0 auto;
 }
 
@@ -343,6 +336,11 @@ select {
     color: #424242;
 }
 
+.text-container span[id] {
+    cursor: pointer;
+}
+
+
 /* adding circle around the color buttons */
 .hidden-circle {
     stroke: transparent;
@@ -358,7 +356,9 @@ select {
     position: relative;
 }
 
-.right-images-container img,
+/* For the slide animation */
+
+/* .right-images-container img,
 .left-images-container img {
     position: absolute;
     top: 0;
@@ -369,7 +369,23 @@ select {
 .right-images-container img.show,
 .left-images-container img.show {
     left: 0;
+} */
+
+/* For the fade animation */
+.right-images-container img,
+.left-images-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
+
+.right-images-container img.show,
+.left-images-container img.show {
+    opacity: 1;
+}
+
 
 .header {
     transition: transform 0.3s;
@@ -415,16 +431,15 @@ select {
         line-height: 20px;
     }
 
-
-
     .left-images-container {
-        width: 350px;
-        height: 320px;
-
+        width: 100%;
+        /* width: 450px; */
+        /* height: 420px; */
     }
 
     .right-images-container {
-        width: 350px;
-        height: 420px;
+        width: 100%;
+        /* width: 350px; */
+        /* height: 420px; */
     }
 }
