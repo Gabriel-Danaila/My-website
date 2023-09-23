@@ -96,36 +96,7 @@ function updateCircle(index) {
   });
 }
 
-// ====== slide animation , no need for classes in html for images
-// function updateLeftImages(index) {
-//   const images = document.querySelectorAll(".left-images-container img");
-
-//   images.forEach((image, i) => {
-//     if (i === index) {
-//       image.style.left = "0";
-//       image.style.opacity = "1";
-//     } else {
-//       image.style.left = "100%";
-//       image.style.opacity = "0";
-//     }
-//   });
-// }
-
-// function updateRightImages(index) {
-//   const images = document.querySelectorAll(".right-images-container img");
-
-//   images.forEach((image, i) => {
-//     if (i === index) {
-//       image.style.left = "0"; // Show by setting left to 0
-//       image.style.opacity = "1"; // Make it fully visible
-//     } else {
-//       image.style.left = "100%"; // Hide by setting left to 100%
-//       image.style.opacity = "0"; // Make it transparent
-//     }
-//   });
-// }
-
-// ====== fade animation , no need for classes in html for images
+// ====== slide animation
 
 function updateLeftImages(index) {
   const images = document.querySelectorAll(".left-images-container img");
