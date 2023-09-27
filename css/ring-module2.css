@@ -84,6 +84,7 @@ body {
     font-family: "Roboto", sans-serif;
     line-height: 1.5;
     -webkit-text-size-adjust: none;
+    background-color: var(--clr-background-main);
 
 }
 
@@ -424,9 +425,7 @@ select {
 
 /* ==== hover ==== */
 
-.header {
-    transition: transform 0.3s;
-}
+
 
 /** == == == == ==     4. @ media query    == == == == == **/
 @media only screen and (max-width:45em) {
@@ -440,6 +439,7 @@ select {
         left: 0;
         right: 0;
         padding: 1.5em 1em;
+        transition: transform 1s;
     }
 
     .hamburger {

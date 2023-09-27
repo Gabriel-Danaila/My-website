@@ -82,11 +82,9 @@ body {
     /* font-family: "Roboto", sans-serif; */
     line-height: 1.5;
     -webkit-text-size-adjust: none;
-
     max-width: 1500px;
     margin: 0 auto;
-
-
+    background-color: var(--clr-background-main);
 }
 
 
@@ -213,7 +211,6 @@ select {
     gap: 48px;
     background: var(--clr-background-main);
     z-index: 10;
-    /* animation: fadeOut 0.5s forwards; */
 }
 
 .navbar-list.open li {
@@ -356,20 +353,6 @@ select {
     position: relative;
 }
 
-/* For the slide animation */
-
-/* .right-images-container img,
-.left-images-container img {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    transition: left 0.5s ease-in-out;
-}
-
-.right-images-container img.show,
-.left-images-container img.show {
-    left: 0;
-} */
 
 /* For the fade animation */
 .right-images-container img,
@@ -387,9 +370,7 @@ select {
 }
 
 
-.header {
-    transition: transform 0.3s;
-}
+
 
 /** == == == == ==     5. @ media query    == == == == == **/
 @media only screen and (max-width:80em) {
@@ -407,6 +388,8 @@ select {
         left: 0;
         right: 0;
         padding: 1.5em 1em;
+        transition: transform 1s;
+
     }
 
     .hamburger {
@@ -433,13 +416,11 @@ select {
 
     .left-images-container {
         width: 100%;
-        /* width: 450px; */
-        /* height: 420px; */
+
     }
 
     .right-images-container {
         width: 100%;
-        /* width: 350px; */
-        /* height: 420px; */
+
     }
 }

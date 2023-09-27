@@ -367,9 +367,6 @@ Copyright: 2023 */
      }
  }
 
- .header {
-     transition: transform 0.3s;
- }
 
  @media only screen and (max-width:45em) {
      body {
@@ -383,6 +380,7 @@ Copyright: 2023 */
          left: 0;
          right: 0;
          padding: 24px 16px;
+         transition: transform 1s;
      }
 
      .hamburger {

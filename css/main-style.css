@@ -73,6 +73,7 @@ Copyright: 2023 */
      font-family: "Roboto", sans-serif;
      line-height: 1.5;
      -webkit-text-size-adjust: none;
+     background-color: var(--clr-background-main);
  }
 
 
@@ -505,7 +506,7 @@ Copyright: 2023 */
  /** == == == == ==    8. Animation   == == == == ==  **/
 
  .header {
-     transition: transform 0.3s;
+     transition: transform 0.7s;
  }
 
  .project-card-content {
