@@ -273,6 +273,7 @@ Copyright: 2023 */
      font-weight: var(--fw-regular);
      color: var(--clr-text-primary);
      font-style: italic;
+     line-height: 56px;
  }
 
  .project-card-text {
