@@ -60,10 +60,23 @@ window.addEventListener(
 
 // parallax text and img
 
+// function adjustParallaxTextPosition() {
+//   const scrolled = window.scrollY;
+//   const parallaxText = document.querySelector(".parallax-text");
+//   parallaxText.style.top = 78 + scrolled * -0.05 + "%";
+// }
+
 function adjustParallaxTextPosition() {
   const scrolled = window.scrollY;
   const parallaxText = document.querySelector(".parallax-text");
-  parallaxText.style.top = 78 + scrolled * -0.07 + "%";
+
+  let baseValue = 78;
+
+  if (window.innerWidth <= 720) {
+    baseValue = 40;
+  }
+
+  parallaxText.style.top = baseValue + scrolled * -0.05 + "%";
 }
 
 // Call once to set initial position and then call on each scroll
@@ -75,7 +88,7 @@ window.addEventListener("scroll", adjustParallaxTextPosition);
 window.addEventListener("scroll", function () {
   const scrolled = window.scrollY;
   const parallaxText = document.querySelector(".parallax-layer-front");
-  parallaxText.style.top = 110 + scrolled * -0.07 + "%";
+  parallaxText.style.top = 70 + scrolled * -0.03 + "%";
 });
 
 // parallax zoom

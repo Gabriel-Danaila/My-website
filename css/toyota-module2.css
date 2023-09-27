@@ -211,7 +211,6 @@ Copyright: 2023 */
      gap: 48px;
      background: var(--clr-background-main);
      z-index: 10;
-     /* animation: fadeOut 0.5s forwards; */
  }
 
  .navbar-list.open li {
@@ -268,7 +267,7 @@ Copyright: 2023 */
      background-color: var(--clr-background-main);
  }
 
- .accordion-item {
+ .accordion-header {
      padding: 0 5rem;
  }
 
@@ -282,7 +281,7 @@ Copyright: 2023 */
 
  .image-container-position {
      position: absolute;
-     right: -47vw;
+     right: -56vw;
      top: 0;
      height: 800px;
      width: 875px;
@@ -300,11 +299,12 @@ Copyright: 2023 */
 
  }
 
- .hidden-image {
+ #image1,
+ #image2,
+ #image3 {
      opacity: 0;
-     transition: opacity 0.5s ease-in-out;
+     transition: opacity 0.3s ease;
  }
-
 
  .content-header,
  .accordion-container {
@@ -337,12 +337,11 @@ Copyright: 2023 */
 
  .accordion-button.is-open+.accordion-header~.accordion-content {
      max-height: 500px;
-     /* you can set this to a specific height or use JavaScript to calculate */
      transition: max-height 0.4s ease-in;
  }
 
  .text {
-     padding-bottom: 40px;
+     padding: 0 120px 40px 80px;
  }
 
  hr {
@@ -358,12 +357,54 @@ Copyright: 2023 */
      transform: rotate(180deg);
  }
 
+ .accordion-item {
+     animation-name: slideUp;
+     animation-duration: .6s;
+     animation-timing-function: ease-out;
+     animation-fill-mode: forwards;
+     opacity: 0;
+     visibility: hidden;
+ }
+
+ .accordion-item:nth-child(1) {
+     animation-delay: 0s;
+ }
+
+ .accordion-item:nth-child(2) {
+     animation-delay: 0.2s;
+ }
+
+ .accordion-item:nth-child(3) {
+     animation-delay: 0.4s;
+ }
+
+ @keyframes slideUp {
+     0% {
+         transform: translateY(100%);
+         opacity: 0;
+         visibility: visible;
+     }
+
+     100% {
+         transform: translateY(0);
+         opacity: 1;
+         visibility: visible;
+     }
+ }
+
+
 
  .header {
      transition: transform 0.3s;
  }
 
  /** == == == == ==     4. @media query   == == == == == **/
+
+ @media only screen and (min-width:1440px) {
+     .image-container-position {
+         left: 580px;
+     }
+ }
 
  @media only screen and (max-width:45em) {
 
@@ -388,17 +429,19 @@ Copyright: 2023 */
          max-width: 640px;
      }
 
-     .content-header,
-     .accordion-item {
-         padding: 1rem
+     .accordion-header {
+         padding: 0 1rem;
      }
+
 
      .content-header {
          text-align: center;
+         padding: 3rem 1rem 0;
+
      }
 
      .description {
-         padding: 32px 0 48px
+         padding: 32px 16px 48px
      }
 
      .image-container-position {
@@ -409,12 +452,11 @@ Copyright: 2023 */
          overflow: hidden;
      }
 
-     .image-container img {
-         object-fit: cover;
-     }
-
      .accordion-container {
          padding-bottom: 150px
      }
 
+     .text {
+         padding: 0 40px 40px 16px;
+     }
  }
