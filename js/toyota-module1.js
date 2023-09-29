@@ -93,9 +93,46 @@ window.addEventListener("scroll", function () {
 
 // parallax zoom
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   const borderLayer = document.querySelector(".border-layer");
+//   let startScroll = null;
+
+//   function updateBorder() {
+//     const scrolled = window.scrollY;
+//     const topOffset = borderLayer.getBoundingClientRect().top + scrolled;
+
+//     if (scrolled >= topOffset) {
+//       if (startScroll === null) {
+//         startScroll = scrolled;
+//       }
+//       const relativeScroll = scrolled - startScroll;
+//       const newBorderTop = Math.max(0, 280 - relativeScroll * 0.5);
+//       const newBorderRight = Math.max(0, 280 - relativeScroll * 0.5);
+//       const newBorderBottom = Math.max(0, 280 - relativeScroll * 0.5);
+//       const newBorderLeft = Math.max(0, 280 - relativeScroll * 0.5);
+
+//       borderLayer.style.borderTopWidth = `${newBorderTop}px`;
+//       borderLayer.style.borderRightWidth = `${newBorderRight}px`;
+//       borderLayer.style.borderBottomWidth = `${newBorderBottom}px`;
+//       borderLayer.style.borderLeftWidth = `${newBorderLeft}px`;
+//     }
+//   }
+
+//   // Initial setup
+//   updateBorder();
+
+//   // Update on scroll
+//   window.addEventListener("scroll", updateBorder);
+// });
 document.addEventListener("DOMContentLoaded", () => {
   const borderLayer = document.querySelector(".border-layer");
   let startScroll = null;
+  let borderSize = window.innerWidth <= 768 ? 50 : 280; // Set initial border size based on screen width
+
+  // Update border size when the window is resized
+  window.addEventListener("resize", () => {
+    borderSize = window.innerWidth <= 768 ? 50 : 280;
+  });
 
   function updateBorder() {
     const scrolled = window.scrollY;
@@ -106,10 +143,10 @@ document.addEventListener("DOMContentLoaded", () => {
         startScroll = scrolled;
       }
       const relativeScroll = scrolled - startScroll;
-      const newBorderTop = Math.max(0, 200 - relativeScroll * 0.5);
-      const newBorderRight = Math.max(0, 200 - relativeScroll * 2);
-      const newBorderBottom = Math.max(0, 200 - relativeScroll * 8);
-      const newBorderLeft = Math.max(0, 200 - relativeScroll * 2);
+      const newBorderTop = Math.max(0, borderSize - relativeScroll * 0.5);
+      const newBorderRight = Math.max(0, borderSize - relativeScroll * 0.5);
+      const newBorderBottom = Math.max(0, borderSize - relativeScroll * 0.5);
+      const newBorderLeft = Math.max(0, borderSize - relativeScroll * 0.5);
 
       borderLayer.style.borderTopWidth = `${newBorderTop}px`;
       borderLayer.style.borderRightWidth = `${newBorderRight}px`;

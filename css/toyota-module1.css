@@ -76,7 +76,7 @@ Copyright: 2023 */
      line-height: 1.5;
      -webkit-text-size-adjust: none;
      background: var(--clr-background-main);
-     max-width: 1500px;
+     max-width: 1700px;
      margin: 0 auto;
  }
 
@@ -323,19 +323,36 @@ Copyright: 2023 */
      left: 700px
  }
 
+
+
  /* 3 */
 
- .container {
+
+
+ .main-container {
      position: relative;
-     height: 150vh;
+     height: 170vh;
  }
 
- .background-image {
+ .container {
+     position: sticky;
+     top: 0;
+ }
 
+ .spacer {
+     height: 100vh;
+ }
+
+
+
+ .background-image {
+     position: relative;
      width: 100%;
      height: 100vh;
      background: url("../img/toyota-module1/img-4-large.png") center/cover no-repeat;
  }
+
+
 
  .border-layer {
      position: absolute;
@@ -343,7 +360,7 @@ Copyright: 2023 */
      left: 0;
      width: 100%;
      height: 100vh;
-     border: 200px solid var(--clr-background-main);
+     border: 280px solid var(--clr-background-main);
      box-sizing: border-box;
      z-index: 1;
  }
@@ -373,7 +390,6 @@ Copyright: 2023 */
  @media only screen and (max-width:45em) {
      body {
          padding-top: 50px;
-         /* to compensate for fix header position*/
      }
 
      .header {
@@ -393,14 +409,8 @@ Copyright: 2023 */
          display: none;
      }
 
-
      .section {
          padding: 32px 16px 0
-     }
-
-     .section2,
-     .section3 {
-         padding: 0 16px 0
      }
 
      .project-card-text,
@@ -437,5 +447,18 @@ Copyright: 2023 */
      }
 
      /* 3 */
+
+     .main-container {
+         height: 170vh;
+     }
+
+     .border-layer {
+         border-top: 50px solid var(--clr-background-main);
+
+     }
+
+     .background-image {
+         background-size: cover;
+     }
 
  }
