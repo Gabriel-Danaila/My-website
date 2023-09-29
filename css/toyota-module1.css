@@ -76,6 +76,8 @@ Copyright: 2023 */
      line-height: 1.5;
      -webkit-text-size-adjust: none;
      background: var(--clr-background-main);
+     max-width: 1500px;
+     margin: 0 auto;
  }
 
 
