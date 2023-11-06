@@ -294,7 +294,7 @@ Copyright: 2023 */
      height: 160px;
      border-radius: 50%;
      object-fit: cover;
-     /* object-position: -45px; */
+     object-position: center 0px
  }
 
  .resume-part::before {
